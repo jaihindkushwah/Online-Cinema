@@ -10,7 +10,7 @@ import {
 import HouseOutlinedIcon from "@mui/icons-material/HouseOutlined";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
-// import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
+import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import BookOutlinedIcon from '@mui/icons-material/BookOutlined';
 import MovieOutlinedIcon from '@mui/icons-material/MovieOutlined';
@@ -20,6 +20,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import MenuIcon from '@mui/icons-material/Menu';
 
 import { tokens } from "../../theme";
+import { Link } from "react-router-dom";
 // import { Link } from "react-router-dom";
 
 
@@ -28,7 +29,7 @@ const Item = ({ title, to, active, setActive, icon }) => {
   const color = tokens(theme.palette.mode);
   return (
     <MenuItem
-      // component={<Link to={`/${to}`} />}
+      component={<Link to={`/${to}`} />}
       onClick={() => {
         setActive(title);
       }}
@@ -73,13 +74,14 @@ function SideBars() {
         </Menu>
         <Menu style={{paddingTop:'100px'}} rootStyles={{'.ps-menu-button:hover':{backgroundColor:'inherit',}}} menuItemStyles={{button:({active})=>({borderLeft: active &&'6px solid #f54707'})}}>
           <Item to={''} title={'Home'} active={active} setActive={setActive} icon={<HouseOutlinedIcon />}/>
-          <Item to={''} title={'Movies'} active={active} setActive={setActive} icon={<MovieOutlinedIcon />}/>
-          <Item to={''} title={'Tv Shows'} active={active} setActive={setActive} icon={<LiveTvOutlinedIcon />}/>
-          <Item to={''} title={'Series'} active={active} setActive={setActive} icon={<LanguageOutlinedIcon />}/>
-          <Item to={''} title={'Favorite'} active={active} setActive={setActive} icon={<StarBorderIcon />}/>
-          <Item to={''} title={'Watchlist'} active={active} setActive={setActive} icon={<BookOutlinedIcon />}/>
-          <Item to={''} title={'Settings'} active={active} setActive={setActive} icon={<SettingsOutlinedIcon />}/>
-          <Item to={''} title={'Logout'} active={active} setActive={setActive} icon={<LogoutOutlinedIcon />}/>
+          <Item to={'movies'} title={'Movies'} active={active} setActive={setActive} icon={<MovieOutlinedIcon />}/>
+          <Item to={'tvshows'} title={'Tv Shows'} active={active} setActive={setActive} icon={<LiveTvOutlinedIcon />}/>
+          <Item to={'series'} title={'Series'} active={active} setActive={setActive} icon={<LanguageOutlinedIcon />}/>
+          <Item to={'favorite'} title={'My Favorite'} active={active} setActive={setActive} icon={<StarBorderIcon />}/>
+          <Item to={'watchlist'} title={'Watchlist'} active={active} setActive={setActive} icon={<BookOutlinedIcon />}/>
+          <Item to={'settings'} title={'Settings'} active={active} setActive={setActive} icon={<SettingsOutlinedIcon />}/>
+          <Item to={'logout'} title={'Logout'} active={active} setActive={setActive} icon={<LogoutOutlinedIcon />}/>
+          <Item to={'login'} title={'Login'} active={active} setActive={setActive} icon={<LoginOutlinedIcon/>}/>
         </Menu>
       </Sidebar>
     </Box>

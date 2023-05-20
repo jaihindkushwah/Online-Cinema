@@ -15,9 +15,9 @@ function Poster() {
                   <Typography variant='h6'color={'#cccc'}>A Netflix Original Series</Typography>
                   <Typography variant='h5'><span style={{color:'green',fontWeight:'600'}}>98% Match </span><span style={{color:'white'}}>  2019 </span><ButtonBase color='white'><span style={{color:'white'}}> 1B+</span></ButtonBase></Typography>
                   <Box sx={{'& > *':{fontSize:'10px',fontWeight:'600'},'& >*:hover':{backgroundColor:color.secondary[500]}}}>
-                    <Button style={{backgroundColor:color.secondary[500],color:'white'}} variant="contained" startIcon={<PlayCircleFilledWhiteOutlinedIcon/>}>Watch now</Button>
+                    <Button variant="contained" style={{backgroundColor:color.secondary[500],color:'white',borderRadius:'0px'}}  startIcon={<PlayCircleFilledWhiteOutlinedIcon/>}>Watch now</Button>
                     
-                    <Button variant="contained" style={{marginLeft:'8px',color:'white',backdropFilter: 'blur(10px)',backgroundColor:'rgba(166, 166, 166,0.4)'}}  startIcon={<AddCircleOutlineOutlinedIcon/>}>My List</Button>
+                    <Button variant="contained" style={{marginLeft:'8px',color:'white',borderRadius:'0px',backdropFilter: 'blur(10px)',backgroundColor:'rgba(166, 166, 166,0.4)'}}  startIcon={<AddCircleOutlineOutlinedIcon/>}>My List</Button>
                   </Box>
                 </Box>
                 <Box></Box>

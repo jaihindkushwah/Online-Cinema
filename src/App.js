@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { Box, CssBaseline, ThemeProvider } from "@mui/material";
+import "./App.css";
+import SideBar from "./scenes/sidebar";
+import TopBar from "./scenes/topbar";
+import { ProSidebarProvider } from "react-pro-sidebar";
+import { colorModeContext, useColorMode } from "./theme";
+import HomePage from "./scenes/homePage/HomePage";
+
 
 function App() {
+  const [theme,colorMode]=useColorMode();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <colorModeContext.Provider value={colorMode} >
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Box
+          display={"flex"}
+          flexDirection={"row"}
+          minHeight={"100vh"}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Box>
+            <ProSidebarProvider>
+              <SideBar />
+            </ProSidebarProvider>
+          </Box>
+          <Box flex={1}>
+            <TopBar />
+            <Box>
+              <HomePage/>
+            </Box>
+          </Box>
+        </Box>
+      </ThemeProvider>
+    </colorModeContext.Provider>
   );
 }
 

@@ -1,7 +1,6 @@
-import { Box, Button, ButtonBase, IconButton, useTheme } from "@mui/material";
+import { Box, IconButton, useTheme } from "@mui/material";
 import React, { useState } from "react";
 import {
-  ProSidebarProvider,
   Sidebar,
   Menu,
   MenuItem,
@@ -11,7 +10,7 @@ import {
 import HouseOutlinedIcon from "@mui/icons-material/HouseOutlined";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
-import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
+// import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import BookOutlinedIcon from '@mui/icons-material/BookOutlined';
 import MovieOutlinedIcon from '@mui/icons-material/MovieOutlined';
@@ -21,7 +20,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import MenuIcon from '@mui/icons-material/Menu';
 
 import { tokens } from "../../theme";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 
 const Item = ({ title, to, active, setActive, icon }) => {

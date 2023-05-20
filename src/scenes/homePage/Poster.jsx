@@ -1,6 +1,6 @@
 import { tokens } from '../../theme';
 import poster from './poster.jpg'
-import { Box, Button, ButtonBase, Grid, IconButton, ImageListItem, Typography, useMediaQuery, useTheme } from '@mui/material'
+import { Box, Button, ButtonBase, Typography, useMediaQuery, useTheme } from '@mui/material'
 import PlayCircleFilledWhiteOutlinedIcon from '@mui/icons-material/PlayCircleFilledWhiteOutlined';
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 function Poster() {

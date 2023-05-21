@@ -9,6 +9,13 @@ import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MoviesPage from "./scenes/movies/MoviesPage";
+import TvShows from "./scenes/tvshows/TvShows";
+import Series from "./scenes/series/Series";
+import Watchlist from "./scenes/watchlist/Watchlist";
+import MyFavourite from "./scenes/favourite/MyFavourite";
+import LoginPage from "./scenes/login/LoginPage";
+import Settings from "./scenes/settings/Settings";
+import LogoutPage from "./scenes/logout/LogoutPage";
 
 
 function App() {
@@ -24,27 +31,29 @@ function App() {
           display={"flex"}
           flexDirection={"row"}
           minHeight={"100vh"}
+          max-width={'100vw'}
         >
           <Box>
             <ProSidebarProvider>
               <SideBar />
             </ProSidebarProvider>
           </Box>
-          <Box flex={1}>
+          <Box flex={1} sx={{overflowX:'hidden'}}>
             <TopBar />
             <Box>
               <Routes>
                 <Route path="/" element={<HomePage/>}/>
                 <Route path="/movies" element={<MoviesPage/>}/>
-                <Route path="/tvshows" element={<HomePage/>}/>
-                <Route path="/series" element={<HomePage/>}/>
-                <Route path="/favorite" element={<HomePage/>}/>
-                <Route path="/watchlist" element={<HomePage/>}/>
-                <Route path="/settings" element={<HomePage/>}/>
-                <Route path="/login" element={<HomePage/>}/>
-                <Route path="/logout" element={<HomePage/>}/>
+                <Route path="/tvshows" element={<TvShows/>}/>
+                <Route path="/series" element={<Series/>}/>
+                <Route path="/favorite" element={<MyFavourite/>}/>
+                <Route path="/watchlist" element={<Watchlist/>}/>
+                <Route path="/settings" element={<Settings/>}/>
+                <Route path="/login" element={<LoginPage/>}/>
+                <Route path="/logout" element={<LogoutPage/>}/>
                 <Route path="/signup" element={<HomePage/>}/>
                 <Route path="/user" element={<HomePage/>}/>
+                
               </Routes>
             </Box>
           </Box>

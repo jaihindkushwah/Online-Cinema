@@ -6,6 +6,7 @@ import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import { colorModeContext, tokens } from '../../theme';
 import { DarkModeOutlined, LightModeOutlined } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 
 function TopBar() {
   const colorMode=useContext(colorModeContext);
@@ -13,6 +14,7 @@ function TopBar() {
   const color=tokens(theme.palette.mode);
   // console.log(color);
   const mobile=useMediaQuery('(max-width:420px)');
+  const navigate=useNavigate();
   
 
   return (
@@ -30,7 +32,7 @@ function TopBar() {
           <IconButton><NotificationsOutlinedIcon/></IconButton>
         </Box>
         <Box >
-          <IconButton><PersonOutlineOutlinedIcon/></IconButton>
+          <IconButton onClick={()=>{navigate('/user')}} ><PersonOutlineOutlinedIcon/></IconButton>
         </Box>
         
       </Box>

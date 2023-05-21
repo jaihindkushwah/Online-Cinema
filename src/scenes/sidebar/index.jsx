@@ -21,6 +21,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 import { tokens } from "../../theme";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 // import { Link } from "react-router-dom";
 
 
@@ -47,13 +48,13 @@ function SideBars() {
   const { collapseSidebar, collapsed } = useProSidebar();
   const theme=useTheme();
   const color=tokens(theme.palette.mode);
+  const isLogin=useSelector((state)=>state.login);
   return (
-    <Box sx={{backgroundColor:color.primary[900]}}>
-      <Sidebar style={{minHeight:'100vh',borderRightWidth:0}} 
+    <Box sx={{backgroundColor:color.secondary[900]}} minHeight={'100%'}>
+      <Sidebar style={{minHeight:'100%',borderRightWidth:0}} 
       rootStyles={{
         '.ps-sidebar-container':{
-            backgroundColor:color.primary[900],
-            
+            backgroundColor:color.secondary[900],
         },
         '.ps-menuitem-root:hover':{
             // color:"brown",
@@ -80,8 +81,8 @@ function SideBars() {
           <Item to={'favorite'} title={'My Favorite'} active={active} setActive={setActive} icon={<StarBorderIcon />}/>
           <Item to={'watchlist'} title={'Watchlist'} active={active} setActive={setActive} icon={<BookOutlinedIcon />}/>
           <Item to={'settings'} title={'Settings'} active={active} setActive={setActive} icon={<SettingsOutlinedIcon />}/>
-          <Item to={'logout'} title={'Logout'} active={active} setActive={setActive} icon={<LogoutOutlinedIcon />}/>
-          <Item to={'login'} title={'Login'} active={active} setActive={setActive} icon={<LoginOutlinedIcon/>}/>
+          {isLogin? <Item to={'logout'}  title={'Logout'} active={active} setActive={setActive} icon={<LogoutOutlinedIcon />}/>:
+          <Item to={'login'} title={'Login'} active={active} setActive={setActive} icon={<LoginOutlinedIcon/>}/>}
         </Menu>
       </Sidebar>
     </Box>

@@ -123,7 +123,6 @@ export const themeSettings = (mode) =>{
           background:{
             default:color.primary[900]
           }
-          
         },
         typography: {
           fontSize: 12,

@@ -5,6 +5,9 @@ test.js
 /node_modules
 /.pnp
 .pnp.js
+.env
+src/firebase/config.js
+src/movieApi/config.js
 
 # testing
 /coverage

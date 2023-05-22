@@ -23,7 +23,29 @@ export const tokens = (mode) =>(
       700: "#26316d",
       800: "#192048",
       900: "#0d1024"
-    }
+    },
+    pink: {
+      100: "#fbd2e0",
+      200: "#f6a5c1",
+      300: "#f278a1",
+      400: "#ed4b82",
+      500: "#e91e63",
+      600: "#ba184f",
+      700: "#8c123b",
+      800: "#5d0c28",
+      900: "#2f0614"
+    },
+    lightblue: {
+      100: "#cdeefd",
+      200: "#9addfb",
+      300: "#68cbf8",
+      400: "#35baf6",
+      500: "#03a9f4",
+      600: "#0287c3",
+      700: "#026592",
+      800: "#014462",
+      900: "#012231"
+ }
 } : 
 { 
     primary: {
@@ -46,7 +68,29 @@ export const tokens = (mode) =>(
           300: "#26316d",
           200: "#192048",
           100: "#0d1024"
-        }
+        },
+        pink: {
+          900: "#fbd2e0",
+          800: "#f6a5c1",
+          700: "#f278a1",
+          600: "#ed4b82",
+          500: "#e91e63",
+          400: "#ba184f",
+          300: "#8c123b",
+          200: "#5d0c28",
+          100: "#2f0614"
+     },
+     lightblue: {
+      900: "#cdeefd",
+      800: "#9addfb",
+      700: "#68cbf8",
+      600: "#35baf6",
+      500: "#03a9f4",
+      400: "#0287c3",
+      300: "#026592",
+      200: "#014462",
+      100: "#012231"
+ },
  }
 );
 
@@ -73,7 +117,17 @@ export const tokens = (mode) =>(
 //       },
 //     }
 // )
-
+// 'lightblue: {
+//      900: "#cdeefd",
+//      800: "#9addfb",
+//      700: "#68cbf8",
+//      600: "#35baf6",
+//      500: "#03a9f4",
+//      400: "#0287c3",
+//      300: "#026592",
+//      200: "#014462",
+//      100: "#012231"
+// },'
 
 export const themeSettings = (mode) =>{
     const color=tokens(mode);
@@ -92,6 +146,12 @@ export const themeSettings = (mode) =>{
             light:color.secondary[500],
             dark:color.secondary[500]
           },
+          // pink:{
+          //   main:color.pink[500],
+          // },
+          // lightblue:{
+          //   main:color.lightblue[500],
+          // },
           background:{
             default:color.primary[800]
           }
@@ -120,15 +180,21 @@ export const themeSettings = (mode) =>{
             light:color.secondary[500],
             dark:color.secondary[500]
           },
+          // pink:{
+          //   main:color.pink[500],
+          // },
+          // lightblue:{
+          //   main:color.lightblue[500],
+          // },
           background:{
             default:color.primary[900]
           }
         },
         typography: {
           fontSize: 12,
-          h1: { fontSize: 36 },
-          h2: { fontSize: 30 },
-          h3: { fontSize: 24 },
+          h1: { fontSize: 34 },
+          h2: { fontSize: 28 },
+          h3: { fontSize: 22 },
           h4: { fontSize: 18 },
           h5: { fontSize: 14 },
           h6: { fontSize: 12 },

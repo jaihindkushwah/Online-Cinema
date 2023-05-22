@@ -17,9 +17,8 @@ import LoginPage from "./scenes/login/LoginPage";
 import Settings from "./scenes/settings/Settings";
 import LogoutPage from "./scenes/logout/LogoutPage";
 
-
 function App() {
-  
+    
   const [theme,colorMode]=useColorMode();
   return (<Provider store={store}>
     

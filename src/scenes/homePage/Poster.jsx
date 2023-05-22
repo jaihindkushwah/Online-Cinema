@@ -17,7 +17,7 @@ function Poster() {
                   <Box sx={{'& > *':{fontSize:'10px',fontWeight:'600'},'& >*:hover':{backgroundColor:color.secondary[500]}}}>
                     <Button variant="contained" style={{backgroundColor:color.secondary[500],color:'white',borderRadius:'0px'}}  startIcon={<PlayCircleFilledWhiteOutlinedIcon/>}>Watch now</Button>
                     
-                    <Button variant="contained" style={{marginLeft:'8px',color:'white',borderRadius:'0px',backdropFilter: 'blur(10px)',backgroundColor:'rgba(166, 166, 166,0.4)'}}  startIcon={<AddCircleOutlineOutlinedIcon/>}>My List</Button>
+                    <Button variant="contained" style={{marginLeft:'8px',color:'white',borderRadius:'0px',backdropFilter: 'blur(8px)',backgroundColor:'rgba(166, 166, 166,0.4)'}}  startIcon={<AddCircleOutlineOutlinedIcon/>}>My List</Button>
                   </Box>
                 </Box>
                 <Box></Box>

@@ -18,7 +18,8 @@ function TopBar() {
   
 
   return (
-    <Box display={'flex'} justifyContent={'flex-end'} p={'15px'}>
+    // <Box sx={{position:'sticky',top:"0px",backdropFilter:'blur(8px)',zIndex:'1000'}}>
+      <Box display={'flex'} justifyContent={'flex-end'} p={'15px'}>
       <Box sx={{display: 'flex',alignItems:'center',justifyContent:'space-around',height:'40px','& > *':{margin:'0px 5px',backgroundColor:color.secondary[900]}}}>
         <Box sx={{ display: 'flex', alignItems: 'center'}} minWidth={mobile?'180px':'280px'}>
           <IconButton ><SearchIcon/></IconButton>
@@ -37,6 +38,7 @@ function TopBar() {
         
       </Box>
     </Box>
+    // </Box>
   )
 }
 

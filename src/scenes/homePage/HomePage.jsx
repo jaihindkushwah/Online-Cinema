@@ -8,14 +8,17 @@ import { imdbAdvanceSearch } from "../../movieApi/urls";
 
 
 function HomePage() {
-    const documentry = useFetchApi(imdbAdvanceSearch('title_type=documentary'));
+    const imdbApiKey=process.env.REACT_APP_IMDB_API_KEY;
+    console.log(imdbApiKey);
+    const documentry = useFetchApi(imdbAdvanceSearch(imdbApiKey,'title_type=documentary'));
+    console.log(imdbAdvanceSearch(imdbApiKey,'title_type=documentary'));
     // console.log(documentry[0]);genres=comedy,documentary title_type=tv_series
-    const Comedy=useFetchApi(imdbAdvanceSearch('genres=comedy'));
-    const Romance=useFetchApi(imdbAdvanceSearch('genres=romance'));
-    const Recomended=useFetchApi(imdbAdvanceSearch('genres=action,family,mystery,sci_fi'));
-    const ActionAdventureSifi=useFetchApi(imdbAdvanceSearch('genres=action,adventure,sci_fi'));
+    const Comedy=useFetchApi(imdbAdvanceSearch(imdbApiKey,'genres=comedy'));
+    const Romance=useFetchApi(imdbAdvanceSearch(imdbApiKey,'genres=romance'));
+    const Recomended=useFetchApi(imdbAdvanceSearch(imdbApiKey,'genres=action,family,mystery,sci_fi'));
+    const ActionAdventureSifi=useFetchApi(imdbAdvanceSearch(imdbApiKey,'genres=action,adventure,sci_fi'));
     // console.log(Recomended) genres=action,adventure,animation,biography,comedy,crime,family,game_show,horror,mystery,reality_tv,sport,thriller
-    const TvOriginal=useFetchApi(imdbAdvanceSearch('genres=action,adventure,animation,biography,comedy,crime,family,game_show,horror,mystery,reality_tv,sport,thriller'));
+    const TvOriginal=useFetchApi(imdbAdvanceSearch(imdbApiKey,'genres=action,adventure,animation,biography,comedy,crime,family,game_show,horror,mystery,reality_tv,sport,thriller'));
 
 
 

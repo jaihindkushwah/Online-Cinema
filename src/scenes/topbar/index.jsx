@@ -7,6 +7,7 @@ import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined
 import { colorModeContext, tokens } from '../../theme';
 import { DarkModeOutlined, LightModeOutlined } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function TopBar() {
   const colorMode=useContext(colorModeContext);
@@ -15,6 +16,8 @@ function TopBar() {
   // console.log(color);
   const mobile=useMediaQuery('(max-width:420px)');
   const navigate=useNavigate();
+
+  const isLogin=useSelector((state)=>state.login);
   
 
   return (
@@ -33,7 +36,9 @@ function TopBar() {
           <IconButton><NotificationsOutlinedIcon/></IconButton>
         </Box>
         <Box >
-          <IconButton onClick={()=>{navigate('/user')}} ><PersonOutlineOutlinedIcon/></IconButton>
+          <IconButton onClick={()=>{
+              isLogin?navigate('/logout'):navigate('/login')
+          }} ><PersonOutlineOutlinedIcon/></IconButton>
         </Box>
         
       </Box>

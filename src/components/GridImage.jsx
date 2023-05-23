@@ -1,35 +1,23 @@
 import { Box } from '@mui/material'
-import React from 'react'
+import React, {  } from 'react'
 import ImageItem from './ImageItem';
-import logo from '../assests/jai.png';
+import { imageBaseUrl } from '../movieApi/urls';
+// import logo from '../assests/jai.png';
+
 
 function GridImage({data}) {
+  // const [customData,setCustomData]=useState();
+  
+
   return (
-    <Box padding={'20px'} display={'flex'} flexWrap={'wrap'}>
-        <ImageItem width='180px' height='220px' src={logo} />
-        <ImageItem width='180px' height='220px' src={logo} />
-        <ImageItem width='180px' height='220px' src={logo} />
-        <ImageItem width='180px' height='220px' src={logo} />
-        <ImageItem width='180px' height='220px' src={logo} />
-        <ImageItem width='180px' height='220px' src={logo} />
-        <ImageItem width='180px' height='220px' src={logo} />
-        <ImageItem width='180px' height='220px' src={logo} />
-        <ImageItem width='180px' height='220px' src={logo} />
-        <ImageItem width='180px' height='220px' src={logo} />
-        <ImageItem width='180px' height='220px' src={logo} />
-        <ImageItem width='180px' height='220px' src={logo} />
-        <ImageItem width='180px' height='220px' src={logo} />
-        <ImageItem width='180px' height='220px' src={logo} />
-        <ImageItem width='180px' height='220px' src={logo} />
-        <ImageItem width='180px' height='220px' src={logo} />
-        <ImageItem width='180px' height='220px' src={logo} />
-        <ImageItem width='180px' height='220px' src={logo} />
-        <ImageItem width='180px' height='220px' src={logo} />
-        <ImageItem width='180px' height='220px' src={logo} />
-        <ImageItem width='180px' height='220px' src={logo} />
-        <ImageItem width='180px' height='220px' src={logo} />
-        <ImageItem width='180px' height='220px' src={logo} />
-        <ImageItem width='180px' height='220px' src={logo} />
+    <Box padding={'0px'} display={'flex'} flexWrap={'wrap'} justifyContent={'center'} alignItems={'center'}>
+          { data.map((item)=>{
+                return(
+                    <ImageItem width='180px' height='220px' key={item.id}  id={item.id} src={imageBaseUrl+item.poster_path} />
+                )
+            })
+        }
+        
     </Box>
   )
 }

@@ -5,6 +5,7 @@ import Poster from './Poster'
 import VerticalImageList from '../../components/VerticalImageList'
 import useFetchApi from '../../customHooks/fetchApi'
 import { actionAdventureUrl, comedyUrl, documentryUrl, originalUrl, recommendedUrl, romanceUrl, trendingUrl } from "../../movieApi/urls";
+// import { useLocation } from 'react-router-dom'
 
 
 function HomePage() {
@@ -19,9 +20,6 @@ function HomePage() {
     const Recomended=useFetchApi(recommendedUrl);
     const ActionAdventureSifi=useFetchApi(actionAdventureUrl);
     const TvOriginal=useFetchApi(originalUrl);
-
-   
-
 
 
   return (

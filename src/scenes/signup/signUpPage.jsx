@@ -110,7 +110,7 @@ import userRegistrations from "../../firebase/createUserRegistration";
                   name="name"
                   // value={email}
                   helperText={<ErrorMessage name="name" component="div" />}
-                  id="input-with-icon-textfield"
+                  id="input-with-icon-textfield1"
                   label="Full Name"
                   placeholder="Type your Full name"
                   InputProps={{

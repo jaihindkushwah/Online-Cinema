@@ -18,14 +18,18 @@ import LiveTvOutlinedIcon from '@mui/icons-material/LiveTvOutlined';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import CloseIcon from '@mui/icons-material/Close';
 import MenuIcon from '@mui/icons-material/Menu';
+import HelpIcon from '@mui/icons-material/Help';
 
 import { tokens } from "../../theme";
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"; //, useLocation
 import { useSelector } from "react-redux";
 // import { Link } from "react-router-dom";
 
 
 const Item = ({ title, to, active, setActive, icon }) => {
+  
+  // const location=useLocation().pathname;
+
   const theme = useTheme();
   const color = tokens(theme.palette.mode);
   return (
@@ -35,7 +39,7 @@ const Item = ({ title, to, active, setActive, icon }) => {
         setActive(title);
       }}
       active={active===title}
-      style={active === title ? { color: color.secondary[500]} : {}}
+      style={ title === active? { color: color.secondary[500]} : {}}
       icon={icon}
     >
       {title}
@@ -51,7 +55,7 @@ function SideBars() {
   const isLogin=useSelector((state)=>state.login);
   return (
     <Box sx={{backgroundColor:color.secondary[900]}} minHeight={'100%'}>
-      <Sidebar style={{minHeight:'100%',borderRightWidth:0}} 
+      <Sidebar style={{borderRightWidth:0,backgroundColor:color.secondary[900]}} 
       rootStyles={{
         '.ps-sidebar-container':{
             backgroundColor:color.secondary[900],
@@ -81,8 +85,9 @@ function SideBars() {
           <Item to={'favorite'} title={'My Favorite'} active={active} setActive={setActive} icon={<StarBorderIcon />}/>
           <Item to={'watchlist'} title={'Watchlist'} active={active} setActive={setActive} icon={<BookOutlinedIcon />}/>
           <Item to={'settings'} title={'Settings'} active={active} setActive={setActive} icon={<SettingsOutlinedIcon />}/>
+          <Item to={'faq'} title={'FAQ'} active={active} setActive={setActive} icon={<HelpIcon/>}/>
           {isLogin? <Item to={'logout'}  title={'Logout'} active={active} setActive={setActive} icon={<LogoutOutlinedIcon />}/>:
-          <Item to={'login'} title={'Login'} active={active} setActive={setActive} icon={<LoginOutlinedIcon/>}/>}
+          <Item to={'login'} title={'Login'} active={active} setActive={setActive} icon={<LoginOutlinedIcon/>}/>} 
         </Menu>
       </Sidebar>
     </Box>

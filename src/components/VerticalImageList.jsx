@@ -62,7 +62,7 @@ function VerticalImageList( {title,data}) {
 
                 { data.map((item)=>{
                         return(
-                            <ImageItem  id={item.id} src={imageBaseUrl+item.poster_path} />
+                            <ImageItem key={item.id}  id={item.id} src={imageBaseUrl+item.poster_path} />
                         )
                     })
                 }

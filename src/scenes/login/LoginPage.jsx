@@ -118,7 +118,7 @@ function LoginPage() {
                 name="email"
                 // value={email}
                 helperText={<ErrorMessage name="email" component="div" />}
-                id="input-with-icon-textfield"
+                id="input-with-icon-textfield1_"
                 label="Email"
                 placeholder="Type your username"
                 InputProps={{
@@ -136,7 +136,7 @@ function LoginPage() {
                 name="password"
                 // value={password}
                 helperText={<ErrorMessage name="password" component="div" />}
-                id="input-with-icon-textfield1"
+                id="input-with-icon-textfield1_1"
                 placeholder="Type your password"
                 label="Password"
                 InputProps={{

@@ -19,3 +19,7 @@ export const actionAdventureUrl=API_BASE+'/discover/movie?with_genres=28&languag
 export const comedyUrl=API_BASE+'/discover/movie?with_genres=35&language=en-US&api_key='+TMDB_API_KEY;
 export const romanceUrl=API_BASE+'/discover/movie?with_genres=10749&language=en-US&api_key='+TMDB_API_KEY;
 export const documentryUrl=API_BASE+'/discover/movie?with_genres=99&language=en-US&api_key='+TMDB_API_KEY;
+
+
+
+export const movieListUrl=(page)=>(API_BASE+`/movie/popular?language=en-US&page=${page}&api_key=`+TMDB_API_KEY);

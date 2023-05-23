@@ -17,6 +17,8 @@ import LoginPage from "./scenes/login/LoginPage";
 import Settings from "./scenes/settings/Settings";
 import LogoutPage from "./scenes/logout/LogoutPage";
 import SignUpPage from "./scenes/signup/signUpPage";
+import Footer from "./scenes/footer/Footer";
+import FaqPage from "./faq/FaqPage";
 
 function App() {
     
@@ -53,11 +55,13 @@ function App() {
                 <Route path="/logout" element={<LogoutPage/>}/>
                 <Route path="/signup" element={<SignUpPage/>}/>
                 <Route path="/user" element={<HomePage/>}/>
-                
+                <Route path="/faq" element={<FaqPage/>}/>
               </Routes>
             </Box>
           </Box>
+          
         </Box>
+        <Footer/>
         </BrowserRouter>
       </ThemeProvider>
     </colorModeContext.Provider>

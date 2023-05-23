@@ -10,8 +10,9 @@ export function signUpWithGoogle(dispatch,login,navigate){
     .then((result)=>{
         // const token=result.credential.accessToken;
         const user=result.user;
-        alert(JSON.stringify(user)+"");
-        dispatch(login());
+        // alert(JSON.stringify(user)+"");
+        // console.log(user)
+        dispatch(login(JSON.stringify(user)));
         navigate('/');
     })
     .catch((error)=>{

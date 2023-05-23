@@ -1,7 +1,7 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 
 
-export const useFetchApi=(url)=>{
+const useFetchApi=(url)=>{
     
     const [data,setData]=useState([]);
     useEffect(()=>{
@@ -9,6 +9,7 @@ export const useFetchApi=(url)=>{
         .then((res)=>res.json())
         .then((res)=>{setData(res.results)})
     },[url])
-    
     return [data];
 }
+
+export default useFetchApi

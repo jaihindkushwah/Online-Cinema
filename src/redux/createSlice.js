@@ -4,6 +4,7 @@ const createOttSclice= createSlice({
     name:'OttApp',
     initialState:{
         login:false,
+        userDetails:''
         // details:{
         //     name:'',
         //     email:'',
@@ -15,9 +16,9 @@ const createOttSclice= createSlice({
     },
     reducers:{
         watchlist:(state)=>({...state}),
-        login:(state)=>({...state,login:true}),
-        logout:(state)=>({...state,login:false}),
-        signup:(state)=>({...state}),
+        login:(state,action)=>({...state,login:true,userDetails:action.payload}),
+        logout:(state)=>({...state,login:false,userDetails:''}),
+        signup:(state,action)=>({...state,login:true,userDetails:action.payload}),
         subscription:(state)=>({...state}),
     }
 })

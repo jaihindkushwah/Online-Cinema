@@ -21,7 +21,8 @@ import { useDispatch } from "react-redux";
 
 import {login} from '../../redux/createSlice'
 import { signUpWithGoogle } from "../../firebase/signUpUsingEmail";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 
 
 
@@ -66,11 +67,13 @@ function LoginPage() {
   return (
     <Box padding={"20px"} sx={flexStyle}>
       <Box
-        height={"480px"}
+        height={"500px"}
         width="360px"
         sx={{ backgroundColor: color.lightblue[700] }}
       >
+        
         <Box width="100%" height="100%" sx={{ ...flexStyle }}>
+        <Box width={'100%'} sx={{...flexStyle,justifyContent:'flex-end',flexDirection:'row'}}><Link  style={{padding:"5px 10px",backgroundColor:color.pink[600],color:'inherit',textDecoration:'none',marginRight:'20px'}} to={'/signup'}>Sign Up</Link></Box>
           <Formik 
           initialValues={{ email: '', password: ''}}
           validate={values => {
@@ -116,7 +119,7 @@ function LoginPage() {
                 // value={email}
                 helperText={<ErrorMessage name="email" component="div" />}
                 id="input-with-icon-textfield"
-                label="Username"
+                label="Email"
                 placeholder="Type your username"
                 InputProps={{
                   startAdornment: (
@@ -133,7 +136,7 @@ function LoginPage() {
                 name="password"
                 // value={password}
                 helperText={<ErrorMessage name="password" component="div" />}
-                id="input-with-icon-textfield"
+                id="input-with-icon-textfield1"
                 placeholder="Type your password"
                 label="Password"
                 InputProps={{
@@ -168,7 +171,7 @@ function LoginPage() {
           </Formik>
           <Box sx={{ ...flexStyle, justifyContent: "space-between" }}>
             <Typography marginBottom={"20px"} variant="h6">
-              Or Sign Up Using
+              Or Login Using
             </Typography>
             <Box>
               <IconButton>

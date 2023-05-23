@@ -16,6 +16,7 @@ import MyFavourite from "./scenes/favourite/MyFavourite";
 import LoginPage from "./scenes/login/LoginPage";
 import Settings from "./scenes/settings/Settings";
 import LogoutPage from "./scenes/logout/LogoutPage";
+import SignUpPage from "./scenes/signup/signUpPage";
 
 function App() {
     
@@ -50,7 +51,7 @@ function App() {
                 <Route path="/settings" element={<Settings/>}/>
                 <Route path="/login" element={<LoginPage/>}/>
                 <Route path="/logout" element={<LogoutPage/>}/>
-                <Route path="/signup" element={<HomePage/>}/>
+                <Route path="/signup" element={<SignUpPage/>}/>
                 <Route path="/user" element={<HomePage/>}/>
                 
               </Routes>

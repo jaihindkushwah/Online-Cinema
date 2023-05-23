@@ -3,8 +3,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import ImageItem from './ImageItem'
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import logo from '../assests/jai.png'
-import logo1 from '../assests/logo512.png'
+// import logo from '../assests/jai.png'
+// import logo1 from '../assests/logo512.png'
 
 
 import { tokens } from '../theme';
@@ -55,14 +55,19 @@ function VerticalImageList( {title,data}) {
 
             </Box>   
             {/* // total scroll length=156*total_no_of_items */}
-            {/* {data.map((item)=>{
+            
+            <Box zIndex={'5'} display={'flex'} alignItems={'center'} sx={{overflow:'hidden'}} ref={ref} >
+
+                { data.slice(0,26).map((item)=>{
                         return(
-                            <ImageItem  id={''} src={item.image} />
+                            <ImageItem  id={item.id} src={item.image} />
                         )
                     })
-                    } */}
-            <Box zIndex={'5'} display={'flex'} alignItems={'center'} sx={{overflow:'hidden'}} ref={ref} >
-                    <ImageItem src={logo} />
+                }
+                
+
+
+                    {/* <ImageItem src={logo} />
                     <ImageItem src={logo1} />
                     <ImageItem src={logo1} />
                     <ImageItem src={logo} />
@@ -82,7 +87,7 @@ function VerticalImageList( {title,data}) {
                     <ImageItem src={logo} />
                     <ImageItem src={logo1} />
                     <ImageItem src={logo} />
-                    <ImageItem src={logo1} />
+                    <ImageItem src={logo1} /> */}
 
                 
                 

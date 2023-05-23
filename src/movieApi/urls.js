@@ -4,4 +4,4 @@
 // const movieList='https://api.themoviedb.org/3/genre/movie/list';
 // const tvList='https://api.themoviedb.org/3/genre/tv/list';
 
-export const imdbAdvanceSearch=(API_KEY,query)=>(`https://imdb-api.com/API/AdvancedSearch/${API_KEY}/?${query}`)
+export const imdbAdvanceSearch=(API_KEY,query)=>(`https://imdb-api.com/API/AdvancedSearch/${API_KEY}?${query}`)

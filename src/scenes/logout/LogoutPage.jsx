@@ -1,16 +1,28 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { login,logout} from '../../redux/createSlice';
+import { useDispatch } from 'react-redux'
+import { logout} from '../../redux/createSlice';
 import { Box } from '@mui/material';
+import { signOut } from 'firebase/auth';
+import { auth } from "../../firebase/firebase";
+import { useNavigate } from 'react-router-dom';
+
+
 function LogoutPage() {
-    const isLogin = useSelector((state)=>state.login);
+    // const isLogin = useSelector((state)=>state.login);
     const dispatch=useDispatch();
+    const navigate=useNavigate();
+
   return (
-    <Box>
+    <Box padding={'20px'}>
         <div>LogoutPage</div>
-        <p> isLogin:{console.log(isLogin)}</p>
-        <button onClick={()=>{dispatch(login())}}>Login</button>
-        <button onClick={()=>{dispatch(logout())}}>Logout</button>
+        <p>Are you sure for logOut</p>
+        <button onClick={()=>{navigate('/')}}>Cancel</button>
+        <button onClick={
+          ()=>{
+            signOut(auth).then(()=>{dispatch(logout())}).then(()=>{navigate('/')})
+            
+          }
+          }>Confirm</button>
     </Box>
   )
 }

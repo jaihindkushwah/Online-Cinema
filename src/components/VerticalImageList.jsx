@@ -60,7 +60,7 @@ function VerticalImageList( {title,data}) {
             
             <Box zIndex={'5'} display={'flex'} alignItems={'center'} sx={{overflow:'hidden'}} ref={ref} >
 
-                { data.slice(0,26).map((item)=>{
+                { data.map((item)=>{
                         return(
                             <ImageItem  id={item.id} src={imageBaseUrl+item.poster_path} />
                         )

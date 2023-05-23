@@ -1,10 +1,11 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
 import GridImage from "../../components/GridImage";
-import MovieListData from "../movies/getMovieDate";
+import getTvShowsData from "../../movieApi/getListOfData";
+import { tvShowUrl } from "../../movieApi/urls";
 
 function TvShows() {
-  const data = MovieListData();
+  const data = getTvShowsData(tvShowUrl);
 
   return (
     <Box

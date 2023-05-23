@@ -17,7 +17,7 @@ function Settings() {
         <Typography variant="h3">Settings</Typography>
       </Box>
       <Box>
-        <Accordion defaultExpanded>
+        <Accordion>
           <AccordionSummary expandIcon={<ExpandMore />}>
             <Typography variant="h5">Account</Typography>
           </AccordionSummary>

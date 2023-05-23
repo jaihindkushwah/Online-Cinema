@@ -6,7 +6,7 @@ function FaqPage() {
   return (
     <Box padding={'20px'}>
         <Box padding={'20px'}>
-            <Typography variant='h3'>Faq Page</Typography>
+            <Typography variant='h3'>FAQ Page</Typography>
         </Box>
         <Box padding={'20px'}>
             <Accordion defaultExpanded>

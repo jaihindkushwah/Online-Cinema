@@ -21,5 +21,10 @@ export const romanceUrl=API_BASE+'/discover/movie?with_genres=10749&language=en-
 export const documentryUrl=API_BASE+'/discover/movie?with_genres=99&language=en-US&api_key='+TMDB_API_KEY;
 
 
-
+// tv/popular?language=en-US&page=2&api_key=
 export const movieListUrl=(page)=>(API_BASE+`/movie/popular?language=en-US&page=${page}&api_key=`+TMDB_API_KEY);
+export const tvShowUrl=(page)=>(API_BASE+`/tv/popular?language=en-US&page=${page}&api_key=`+TMDB_API_KEY);
+export const seriesUrl=(page)=>(API_BASE+`/trending/tv/week?language=en-US&page=${page}&api_key=`+TMDB_API_KEY);
+
+
+

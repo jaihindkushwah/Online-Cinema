@@ -160,7 +160,7 @@ export const themeSettings = (mode) =>{
           fontSize: 12,
           h1: { fontSize: 36 },
           h2: { fontSize: 30 },
-          h3: { fontSize: 24 },
+          h3: { fontSize: 22 },
           h4: { fontSize: 18 },
           h5: { fontSize: 14 },
           h6: { fontSize: 12 },

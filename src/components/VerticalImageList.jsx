@@ -48,8 +48,8 @@ function VerticalImageList( {title,data}) {
     
   return (  
         <Box>
-            <Box display={'flex'} justifyContent={'space-between'} margin={'20px 0px'} >
-                <Typography padding={'0px 5px'} variant='h3' letterSpacing={'1.5px'}> {title} </Typography> 
+            <Box display={'flex'} justifyContent={'space-between'} margin={'10px 0px'} >
+                <Typography padding={'0px 5px'} variant='h3' letterSpacing={'1px'}> {title} </Typography> 
                 <Box sx={{'& > Button:hover':{backgroundColor:color.secondary[500]},'& > Button':{color:'white'}}}>
                     <Button onClick={PrevScroll} variant='standard' disabled={scrollValue===0 ? true:false} sx={{backgroundColor:color.secondary[500],marginRight:'5px'}} startIcon={<ChevronLeftIcon/>}/>
                     <Button onClick={NextScroll} variant='standard' disabled={scrollValue===maxScrollWidth ? true:false} sx={{backgroundColor:color.secondary[500]}} endIcon={<ChevronRightIcon/>}/>

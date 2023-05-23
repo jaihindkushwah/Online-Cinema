@@ -4,4 +4,18 @@
 // const movieList='https://api.themoviedb.org/3/genre/movie/list';
 // const tvList='https://api.themoviedb.org/3/genre/tv/list';
 
-export const imdbAdvanceSearch=(API_KEY,query)=>(`https://imdb-api.com/API/AdvancedSearch/${API_KEY}?${query}`)
+export const imdbAdvanceSearch=(API_KEY,query)=>(`https://imdb-api.com/API/AdvancedSearch/${API_KEY}?${query}`);
+
+const TMDB_API_KEY=process.env.REACT_APP_TMDB_API_KEY;
+const API_BASE = 'https://api.themoviedb.org/3';
+
+export const imageBaseUrl='https://image.tmdb.org/t/p/w500';
+
+
+export const originalUrl=API_BASE+'/discover/tv?with_network=213&language=en-US&api_key='+TMDB_API_KEY;
+export const trendingUrl=API_BASE+'/trending/all/week?language=en-US&api_key='+TMDB_API_KEY;
+export const recommendedUrl=API_BASE+'/movie/top_rated?language=en-US&api_key='+TMDB_API_KEY;
+export const actionAdventureUrl=API_BASE+'/discover/movie?with_genres=28&language=en-US&api_key='+TMDB_API_KEY;
+export const comedyUrl=API_BASE+'/discover/movie?with_genres=35&language=en-US&api_key='+TMDB_API_KEY;
+export const romanceUrl=API_BASE+'/discover/movie?with_genres=10749&language=en-US&api_key='+TMDB_API_KEY;
+export const documentryUrl=API_BASE+'/discover/movie?with_genres=99&language=en-US&api_key='+TMDB_API_KEY;

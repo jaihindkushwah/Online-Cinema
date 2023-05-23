@@ -6,6 +6,8 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 // import logo from '../assests/jai.png'
 // import logo1 from '../assests/logo512.png'
 
+import { imageBaseUrl } from '../movieApi/urls';
+
 
 import { tokens } from '../theme';
 function VerticalImageList( {title,data}) {
@@ -60,14 +62,14 @@ function VerticalImageList( {title,data}) {
 
                 { data.slice(0,26).map((item)=>{
                         return(
-                            <ImageItem  id={item.id} src={item.image} />
+                            <ImageItem  id={item.id} src={imageBaseUrl+item.poster_path} />
                         )
                     })
                 }
                 
+{/* 
 
-
-                    {/* <ImageItem src={logo} />
+                    <ImageItem src={logo} />
                     <ImageItem src={logo1} />
                     <ImageItem src={logo1} />
                     <ImageItem src={logo} />

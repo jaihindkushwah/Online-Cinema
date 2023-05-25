@@ -95,6 +95,7 @@ import {
                   sx={{
                     backgroundColor: color.pink[600],
                     fontWeight: "600",
+                    marginBottom:'30px',
                     letterSpacing: "1.5px",
                     "&:hover": { backgroundColor: color.pink[500] },
                   }}

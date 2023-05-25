@@ -161,7 +161,7 @@ function LoginPage() {
                 variant="standard"
                 onChange={handleChange}
               />
-              <Link  style={{padding:"1px 2px",alignSelf:'flex-end',fontSize:'10px',textDecoration:'none',margin:'-8px 0px'}} to={'/resetpassword'}>Reset Password ?</Link>
+              <Link  style={{padding:"1px 2px",alignSelf:'flex-end',fontSize:'10px',textDecoration:'none',margin:'-8px 0px',color:'#0d1024'}} to={'/resetpassword'}>Reset Password ?</Link>
               <Button
                 type="submit"
                 sx={{

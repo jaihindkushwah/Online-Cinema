@@ -53,7 +53,7 @@ function TvInfoPage() {
                 
                 
                 <Box>
-                  <Typography fontWeight={'700'} variant="h2">{singleData.original_name} <span >({new Date(singleData.first_air_date).getFullYear()})</span></Typography>
+                  <Typography fontWeight={'700'} color='white' variant="h2">{singleData.original_name} <span >({new Date(singleData.first_air_date).getFullYear()})</span></Typography>
                 </Box>
 
                 <Box display={"flex"} sx={{'& >*':{margin:'5px 20px'}}}>
@@ -73,9 +73,9 @@ function TvInfoPage() {
                 <Box sx={{'&>*':{margin:"2px 0px"}}}>
                       <Typography variant="h4" color='#cccc' fontSize={'16px'}>{singleData.tagline}</Typography>
                     </Box>
-                    <Typography variant={'h4'} >Overview</Typography>
+                    <Typography variant={'h4'} color='white' >Overview</Typography>
                     <Box>
-                      <Typography variant="h5" >{singleData.overview}</Typography>
+                      <Typography variant="h5" color='white' >{singleData.overview}</Typography>
                     </Box>
                     <Box>
 

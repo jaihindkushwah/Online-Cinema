@@ -193,7 +193,7 @@ export const themeSettings = (mode) =>{
         typography: {
           fontSize: 12,
           h1: { fontSize: 34 },
-          h2: { fontSize: 28 },
+          h2: { fontSize: 30 },
           h3: { fontSize: 22 },
           h4: { fontSize: 18 },
           h5: { fontSize: 14 },

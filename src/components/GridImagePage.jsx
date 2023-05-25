@@ -6,7 +6,7 @@ import { ChevronLeftRounded, ChevronRightOutlined } from "@mui/icons-material";
 import { tokens } from "../theme";
 
 
-function GridImagePage({currentUrl,title}) {
+function GridImagePage({currentUrl,title,type}) {
   const [currentInput,setCurrentInput]=useState(1);
   const theme=useTheme();
   const color=tokens(theme.palette.mode);
@@ -66,7 +66,7 @@ function GridImagePage({currentUrl,title}) {
           Filter By Years.
         </Box> */}
       <Box>
-        <GridImage data={data} />
+        <GridImage type={type} data={data} />
       </Box>
       <Box sx={{'& > button:hover':{backgroundColor:color.secondary[400]}}}>
           <Button sx={{backgroundColor:color.secondary[500],marginRight:'8px'}} disabled={state.value===1} onClick={()=>{dispatch({type:'DEC'})}}  startIcon={<ChevronLeftRounded/>} variant="contained">Prev</Button>

@@ -1,8 +1,9 @@
 import {GoogleAuthProvider , signInWithPopup} from 'firebase/auth'
-import { auth } from './firebase';
+import { auth ,db} from './firebase';
+import { collection, addDoc, query, where, getDoc, Query, getDocs,doc } from "firebase/firestore";
+
 
 const Provider=new GoogleAuthProvider();
-
 
 export function signUpWithGoogle(dispatch,login,navigate){
     // dispatch(login());
@@ -10,10 +11,30 @@ export function signUpWithGoogle(dispatch,login,navigate){
     .then((result)=>{
         // const token=result.credential.accessToken;
         const user=result.user;
-        // alert(JSON.stringify(user)+"");
-        // console.log(user)
-        dispatch(login(JSON.stringify(user)));
-        navigate('/');
+        
+        const usersCollection=collection(db,'users');
+        const q=query(usersCollection,where("uid","==",user.uid))
+        
+        getDocs(q)
+        .then((data) => {
+            if(data.empty){
+                const userData = {
+                  uid: user.uid,
+                  name: user.displayName,
+                  email: user.email,
+                  authProvider: "local",
+                  photoURL: user.photoURL,
+                  phoneNumber: user.phoneNumber,
+                };
+                addDoc(usersCollection,userData);
+            }
+            else{
+                console.log(data.query(collection(q),where('')))
+            }
+        }).then(()=>{
+            dispatch(login(JSON.stringify(user)));
+            navigate('/');
+        })
     })
     .catch((error)=>{
         const errorCode=error.code;
@@ -21,3 +42,4 @@ export function signUpWithGoogle(dispatch,login,navigate){
         alert(errorCode+""+ errorMessage);
     })
 }
+

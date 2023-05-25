@@ -192,7 +192,9 @@ import userRegistrations from "../../firebase/createUserRegistration";
                     alt=""
                   />
                 </IconButton>
-                <IconButton onClick={()=>{signUpWithGoogle(dispatch,login,navigate)}}>
+                <IconButton onClick={()=>{
+                  signUpWithGoogle(dispatch,login,navigate)
+                }}>
                   <img
                     width={40}
                     style={{ borderRadius: "52%" }}

@@ -11,7 +11,7 @@ import { collection, addDoc } from "firebase/firestore";
             const address={address:"",picode:'',currentLocation:''}
             const userData={uid: user.uid, name, email, authProvider: "local",address }
             addDoc(usersCollection,userData);
-            alert("created Successfully");
+            // alert("created Successfully");
             dispatch(login());
             navigate('/')
             // alert(JSON.stringify(user))

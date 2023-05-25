@@ -26,13 +26,13 @@ function HomePage() {
     <Box padding={'20px'} sx={{'&>*':{marginBottom:'20px'}}} >
       <Poster/>
       <Box>
-        <VerticalImageList data={TvOriginal[0]} title={'Tv Originals'}/>
-        <VerticalImageList data={Recomended[0]} title={'Recommended for you'}/>
-        <VerticalImageList data={trending[0]} title={'Trending'}/>
-        <VerticalImageList data={ActionAdventureSifi[0]} title={'Action, Adventure And Sci-Fi'}/>
-        <VerticalImageList data={Comedy[0]} title={'Comedy'}/>
-        <VerticalImageList data={Romance[0]} title={'Romance'}/>
-        <VerticalImageList data={documentry[0]} title={'Documentary'}/>
+        <VerticalImageList type={'tv'} data={TvOriginal[0]} title={'Tv Originals'}/>
+        <VerticalImageList type={'movie'} data={Recomended[0]} title={'Recommended for you'}/>
+        <VerticalImageList type={'trending'} data={trending[0]} title={'Trending'}/>
+        <VerticalImageList type={'movie'} data={ActionAdventureSifi[0]} title={'Action, Adventure And Sci-Fi'}/>
+        <VerticalImageList type={'movie'} data={Comedy[0]} title={'Comedy'}/>
+        <VerticalImageList type={'movie'} data={Romance[0]} title={'Romance'}/>
+        <VerticalImageList type={'movie'} data={documentry[0]} title={'Documentary'}/>
         
         
         {/* <VideoPlayer/> */}

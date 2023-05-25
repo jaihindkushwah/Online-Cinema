@@ -8,7 +8,7 @@ function Series() {
 
   return (
     <Box>
-      <GridImagePage title={'Welcome To The Series Page'} currentUrl={seriesUrl} />
+      <GridImagePage type={'tv'} title={'Welcome To The Series Page'} currentUrl={seriesUrl} />
     </Box>
     
   );

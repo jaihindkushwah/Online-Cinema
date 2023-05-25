@@ -10,7 +10,7 @@ import { imageBaseUrl } from '../movieApi/urls';
 
 
 import { tokens } from '../theme';
-function VerticalImageList( {title,data}) {
+function VerticalImageList( {title,data,type}) {
     const ref=useRef(null);
     const [scrollValue,setScrollValue]=useState(0);
     const [maxScrollWidth,setMaxScrollWidth]=useState(0);
@@ -62,7 +62,7 @@ function VerticalImageList( {title,data}) {
 
                 { data.map((item)=>{
                         return(
-                            <ImageItem key={item.id}  id={item.id} src={imageBaseUrl+item.poster_path} />
+                            <ImageItem type={type==='trending'?item.media_type:type} key={item.id}  id={item.id} src={imageBaseUrl+item.poster_path} />
                         )
                     })
                 }

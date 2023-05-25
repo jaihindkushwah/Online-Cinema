@@ -5,7 +5,7 @@ import { imageBaseUrl } from '../movieApi/urls';
 // import logo from '../assests/jai.png';
 
 
-function GridImage({data}) {
+function GridImage({data,type}) {
   // const [customData,setCustomData]=useState();
   
 
@@ -13,7 +13,7 @@ function GridImage({data}) {
     <Box padding={'0px'} display={'flex'} flexWrap={'wrap'} justifyContent={'center'} alignItems={'center'}>
           { data.map((item)=>{
                 return(
-                    <ImageItem width='180px' height='220px' key={item.id}  id={item.id} src={imageBaseUrl+item.poster_path} />
+                    <ImageItem type={type} width='180px' height='220px' key={item.id}  id={item.id} src={imageBaseUrl+item.poster_path} />
                 )
             })
         }

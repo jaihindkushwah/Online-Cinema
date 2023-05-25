@@ -9,7 +9,7 @@ function MoviesPage() {
 
   return (
     <Box>
-      <GridImagePage title={'Welcome To The Movies Page'} currentUrl={movieListUrl} />
+      <GridImagePage type={'movie'} title={'Welcome To The Movies Page'} currentUrl={movieListUrl} />
     </Box>
   );
 }

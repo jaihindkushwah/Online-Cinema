@@ -25,6 +25,8 @@ export const documentryUrl=API_BASE+'/discover/movie?with_genres=99&language=en-
 export const movieListUrl=(page)=>(API_BASE+`/movie/popular?language=en-US&page=${page}&api_key=`+TMDB_API_KEY);
 export const tvShowUrl=(page)=>(API_BASE+`/tv/popular?language=en-US&page=${page}&api_key=`+TMDB_API_KEY);
 export const seriesUrl=(page)=>(API_BASE+`/trending/tv/week?language=en-US&page=${page}&api_key=`+TMDB_API_KEY);
+// https://api.themoviedb.org/3/movie/772071?language=en-US&api_key=7e71115b680b98bae83aa5b519d687cd
 
+export const singleDataUrl=(type,id)=>(API_BASE+`/${type}/${id}?language=en-US&api_key=`+TMDB_API_KEY);
 
 

@@ -7,7 +7,7 @@ function TvShows() {
 
   return (
     <Box>
-      <GridImagePage title={'Welcome To The Tv Shows Page'} currentUrl={tvShowUrl} />
+      <GridImagePage type={'tv'} title={'Welcome To The Tv Shows Page'} currentUrl={tvShowUrl} />
     </Box>
   );
 }

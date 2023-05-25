@@ -19,6 +19,8 @@ import LogoutPage from "./scenes/logout/LogoutPage";
 import SignUpPage from "./scenes/signup/signUpPage";
 import Footer from "./scenes/footer/Footer";
 import FaqPage from "./faq/FaqPage";
+import MovieInfoPage from "./scenes/movies/MovieInfoPage";
+import TvInfoPage from "./scenes/tvshows/TvInfoPage";
 
 function App() {
     
@@ -45,7 +47,8 @@ function App() {
             <Box>
               <Routes>
                 <Route path="/" element={<HomePage/>}/>
-                <Route path="/movies" element={<MoviesPage/>}/>
+                <Route path="/movies" element={<MoviesPage/>}>
+                </Route>
                 <Route path="/tvshows" element={<TvShows/>}/>
                 <Route path="/series" element={<Series/>}/>
                 <Route path="/favorite" element={<MyFavourite/>}/>
@@ -54,8 +57,10 @@ function App() {
                 <Route path="/login" element={<LoginPage/>}/>
                 <Route path="/logout" element={<LogoutPage/>}/>
                 <Route path="/signup" element={<SignUpPage/>}/>
-                <Route path="/user" element={<HomePage/>}/>
+                <Route path="/user" element={<HomePage/>}></Route>
                 <Route path="/faq" element={<FaqPage/>}/>
+                <Route path="/movie/:id" element={<MovieInfoPage/>} />
+                <Route path="/tv/:id" element={<TvInfoPage/>} />
               </Routes>
             </Box>
           </Box>

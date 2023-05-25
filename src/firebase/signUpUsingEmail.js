@@ -28,9 +28,6 @@ export function signUpWithGoogle(dispatch,login,navigate){
                 };
                 addDoc(usersCollection,userData);
             }
-            else{
-                console.log(data.query(collection(q),where('')))
-            }
         }).then(()=>{
             dispatch(login(JSON.stringify(user)));
             navigate('/');

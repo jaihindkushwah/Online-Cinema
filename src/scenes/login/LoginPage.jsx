@@ -15,13 +15,14 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import facebookLogo from "../../assests/facebookLogo.png";
 import twitterIcon from "../../assests/twitter-app-icon.png";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebase/firebase";
+import { auth, db } from "../../firebase/firebase";
 import { useDispatch } from "react-redux";
 
 
 import {login} from '../../redux/createSlice'
 import { signUpWithGoogle } from "../../firebase/signUpUsingEmail";
 import { Link, useNavigate } from "react-router-dom";
+import { collection, getDocs, query, where } from "firebase/firestore";
 
 
 
@@ -52,9 +53,20 @@ function LoginPage() {
       signInWithEmailAndPassword(auth,email,password)
       .then((userCredential)=>{
         const user=userCredential.user;
-        console.log(user);
-        dispatch(login());
-        navigate('/');
+        const usersCollection=collection(db,'users');
+        const q=query(usersCollection,where("uid","==",user.uid));
+        getDocs(q)
+        .then((data) => {
+          if (!data.empty) {
+            const doc = data.docs[0];
+            console.log("Document already exists. ID:", doc.id);
+            dispatch(login(doc.id));
+          }
+        })
+        
+        .then(()=>{
+            navigate('/');
+        })
 
       })
       .catch((error)=>{
@@ -149,6 +161,7 @@ function LoginPage() {
                 variant="standard"
                 onChange={handleChange}
               />
+              <Link  style={{padding:"1px 2px",alignSelf:'flex-end',fontSize:'10px',textDecoration:'none',margin:'-8px 0px'}} to={'/resetpassword'}>Reset Password ?</Link>
               <Button
                 type="submit"
                 sx={{
@@ -163,11 +176,15 @@ function LoginPage() {
               >
                 Login
               </Button>
+              
               {/* </Box> */}
+              
             </Form>
+            
            )
 
            }
+           
           </Formik>
           <Box sx={{ ...flexStyle, justifyContent: "space-between" }}>
             <Typography marginBottom={"20px"} variant="h6">

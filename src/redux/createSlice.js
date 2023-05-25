@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const createOttSclice= createSlice({
+const createOttSlice= createSlice({
     name:'OttApp',
     initialState:{
         login:false,
+        documentId:'',
         userDetails:''
         // details:{
         //     name:'',
@@ -15,15 +16,13 @@ const createOttSclice= createSlice({
         
     },
     reducers:{
-        watchlist:(state)=>({...state}),
-        login:(state,action)=>({...state,login:true,userDetails:action.payload}),
-        logout:(state)=>({...state,login:false,userDetails:''}),
-        signup:(state,action)=>({...state,login:true,userDetails:action.payload}),
-        subscription:(state)=>({...state}),
+        login:(state,action)=>({...state,login:true,documentId:action.payload}),
+        logout:(state)=>({...state,login:false,documentId:'',userDetails:''}),
+        signup:(state,action)=>({...state,login:true,documentId:action.payload}),
     }
 })
-export const {watchlist,login,logout,signup,subscription}=createOttSclice.actions;
-export const ottReducers=createOttSclice.reducer;
+export const {login,logout,signup}=createOttSlice.actions;
+export const ottReducers=createOttSlice.reducer;
 
 // watchlist
 // login

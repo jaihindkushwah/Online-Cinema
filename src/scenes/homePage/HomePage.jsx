@@ -5,6 +5,7 @@ import Poster from './Poster'
 import VerticalImageList from '../../components/VerticalImageList'
 import useFetchApi from '../../customHooks/fetchApi'
 import { actionAdventureUrl, comedyUrl, documentryUrl, originalUrl, recommendedUrl, romanceUrl, trendingUrl } from "../../movieApi/urls";
+import { useSelector } from 'react-redux'
 // import { useLocation } from 'react-router-dom'
 
 
@@ -20,7 +21,8 @@ function HomePage() {
     const Recomended=useFetchApi(recommendedUrl);
     const ActionAdventureSifi=useFetchApi(actionAdventureUrl);
     const TvOriginal=useFetchApi(originalUrl);
-
+    const documentId=useSelector((state)=>state.documentId);
+    console.log(documentId);
 
   return (
     <Box padding={'20px'} sx={{'&>*':{marginBottom:'20px'}}} >

@@ -8,11 +8,23 @@ import { collection, addDoc } from "firebase/firestore";
         .then((result)=>{
             const user=result.user;
             const usersCollection=collection(db,'users');
-            const address={address:"",picode:'',currentLocation:''}
-            const userData={uid: user.uid, name, email, authProvider: "local",address }
-            addDoc(usersCollection,userData);
+            const userData = {
+                uid: user.uid,
+                name: name,
+                email:email,
+                authProvider: "local",
+                photoURL: '',
+                phoneNumber: '',
+              };
+            
+            addDoc(usersCollection, userData)
+            .then((docRef) => {
+                const documentId = docRef.id;
+                console.log("New document ID:", documentId);
+                dispatch(login(documentId));
+            })
+             
             // alert("created Successfully");
-            dispatch(login());
             navigate('/')
             // alert(JSON.stringify(user))
         })

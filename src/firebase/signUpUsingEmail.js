@@ -14,22 +14,34 @@ export function signUpWithGoogle(dispatch,login,navigate){
         
         const usersCollection=collection(db,'users');
         const q=query(usersCollection,where("uid","==",user.uid))
-        
-        getDocs(q)
-        .then((data) => {
-            if(data.empty){
-                const userData = {
-                  uid: user.uid,
-                  name: user.displayName,
-                  email: user.email,
-                  authProvider: "local",
-                  photoURL: user.photoURL,
-                  phoneNumber: user.phoneNumber,
-                };
-                addDoc(usersCollection,userData);
-            }
-        }).then(()=>{
-            dispatch(login(JSON.stringify(user)));
+        const userData = {
+            uid: user.uid,
+            name: user.displayName,
+            email: user.email,
+            authProvider: "local",
+            photoURL: user.photoURL,
+            phoneNumber: user.phoneNumber,
+          };
+          
+          getDocs(q)
+            .then((data) => {
+              if (data.empty) {
+                addDoc(usersCollection, userData)
+                .then((docRef) => {
+                    const documentId = docRef.id;
+                    console.log("New document ID:", documentId);
+                    dispatch(login(documentId));
+                  })
+              } else {
+
+                const doc = data.docs[0];
+                console.log("Document already exists. ID:", doc.id);
+                dispatch(login(doc.id));
+                
+              }
+            })
+            
+        .then(()=>{
             navigate('/');
         })
     })

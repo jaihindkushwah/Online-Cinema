@@ -21,6 +21,7 @@ import Footer from "./scenes/footer/Footer";
 import FaqPage from "./faq/FaqPage";
 import MovieInfoPage from "./scenes/movies/MovieInfoPage";
 import TvInfoPage from "./scenes/tvshows/TvInfoPage";
+import ResetPasswordPage from "./scenes/resetPassword/resetPassword";
 
 function App() {
     
@@ -56,9 +57,11 @@ function App() {
                 <Route path="/settings" element={<Settings/>}/>
                 <Route path="/login" element={<LoginPage/>}/>
                 <Route path="/logout" element={<LogoutPage/>}/>
+                <Route path="/resetpassword" element={<ResetPasswordPage/>}/>
                 <Route path="/signup" element={<SignUpPage/>}/>
                 <Route path="/user" element={<HomePage/>}></Route>
                 <Route path="/faq" element={<FaqPage/>}/>
+                
                 <Route path="/movie/:id" element={<MovieInfoPage/>} />
                 <Route path="/tv/:id" element={<TvInfoPage/>} />
               </Routes>

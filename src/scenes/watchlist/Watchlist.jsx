@@ -3,7 +3,7 @@ import React from "react";
 import GridImage from "../../components/GridImage";
 
 function Watchlist() {
-  const data = [];
+  const data = JSON.parse(localStorage.getItem('watchListData'))||[];
   return (
     <Box
       padding={"20px"}
@@ -11,13 +11,13 @@ function Watchlist() {
       justifyContent={"center"}
       flexDirection={"column"}
       alignItems={"center"}
+      
     >
-      <Typography marginBottom={"20px"} variant="h3">
+      <Typography letterSpacing={'1px'} marginBottom={"20px"} variant="h3">
         My Watchlist
       </Typography>
-      {/* <Box justifySelf={'space-around'} alignSelf={'flex-start'} >
-          Filter By Years.
-        </Box> */}
+      
+
       <Box>
         <GridImage data={data} />
       </Box>

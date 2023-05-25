@@ -191,7 +191,7 @@ function LoginPage() {
               Or Login Using
             </Typography>
             <Box>
-              <IconButton>
+              <IconButton onClick={()=>{alert('Currently gmail login available')}}>
                 <img
                   width={40}
                   style={{ borderRadius: "52%", backgroundColor: "inherit" }}
@@ -207,7 +207,7 @@ function LoginPage() {
                   src="https://cdn-icons-png.flaticon.com/512/7199/7199629.png"
                 />
               </IconButton>
-              <IconButton>
+              <IconButton onClick={()=>{alert('Currently gmail login available')}}>
                 
                 <img
                   width={40}

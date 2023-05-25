@@ -1,5 +1,5 @@
 import { Box,IconButton,Typography, useTheme } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { singleDataUrl } from '../../movieApi/urls';
 import {useFetchApiForSingleData} from '../../customHooks/fetchApi'
@@ -16,6 +16,47 @@ function TvInfoPage() {
   const [addWatch,setWatch]=useState(false);
   const theme=useTheme();
   const color=tokens(theme.palette.mode);
+
+  
+  const saveFavoriteData=(image,id)=>{
+    const myFavoriteData=JSON.parse(localStorage.getItem('myFavoriteData'))||[];
+    const isPresent=myFavoriteData.some((item)=>item.id===id);
+    if(!isPresent){
+      const newFabData=[...myFavoriteData,{"id":id,poster_path:image,type:'movie'}]
+      localStorage.setItem('myFavoriteData',JSON.stringify(newFabData));
+    }else{
+      const filterData=myFavoriteData.filter((item)=>item.id!==id);
+      localStorage.setItem('myFavoriteData',JSON.stringify(filterData));
+    }
+  }
+
+  const saveWatchListData=(image,id)=>{
+    const watchListData=JSON.parse(localStorage.getItem('watchListData'))||[];
+    const isPresent=watchListData.some((item)=>item.id===id);
+    if(!isPresent){
+      const newWatchListData=[...watchListData,{"id":id,poster_path:image,type:'movie'}];
+      localStorage.setItem('watchListData',JSON.stringify(newWatchListData));
+    }
+    else{
+      const filterData=watchListData.filter((item)=>item.id!==id);
+      localStorage.setItem('watchListData',JSON.stringify(filterData));
+    }
+    
+  }
+
+  useEffect(()=>{
+    const myFavoriteData=JSON.parse(localStorage.getItem('myFavoriteData'))||[];
+    const isPresentFav=myFavoriteData.some((item)=>item.id===Number(id));
+    if(isPresentFav){
+      setFav(true);
+    }
+    const watchListData=JSON.parse(localStorage.getItem('watchListData'))||[];
+    const isPresentWatchList=watchListData.some((item)=>item.id===Number(id));
+    if(isPresentWatchList){
+      setWatch(true);
+    }
+
+  },[id]);
   
   
   // console.log(singleData);
@@ -58,13 +99,13 @@ function TvInfoPage() {
 
                 <Box display={"flex"} sx={{'& >*':{margin:'5px 20px'}}}>
                   <Box title={'My Favorite'}>
-                        <IconButton onClick={()=>{setFav(!addFav)}} color={addFav?'success':''} sx={{ padding: "12px" }} style={{ backgroundColor: color.secondary[900] }}>
+                        <IconButton onClick={()=>{setFav(!addFav);saveFavoriteData(singleData.poster_path,singleData.id)}} color={addFav?'success':''} sx={{ padding: "12px" }} style={{ backgroundColor: color.secondary[900] }}>
                           <Favorite />
                           
                         </IconButton>
                     </Box>
                     <Box title={'Add to WatchList'} >
-                        <IconButton onClick={()=>{setWatch(!addWatch)}} color={addWatch?'success':''} sx={{ padding: "12px" }} style={{ backgroundColor: color.secondary[900] }}>
+                        <IconButton onClick={()=>{setWatch(!addWatch);saveWatchListData(singleData.poster_path,singleData.id)}} color={addWatch?'success':''} sx={{ padding: "12px" }} style={{ backgroundColor: color.secondary[900] }}>
                           <WatchLater />
                           
                         </IconButton>

@@ -59,7 +59,7 @@ function GridImagePage({currentUrl,title,type}) {
       flexDirection={"column"}
       alignItems={"center"}
     >
-      <Typography marginBottom={"20px"} variant="h3">
+      <Typography letterSpacing={'1px'} marginBottom={"20px"} variant="h3">
         {title}
       </Typography>
       {/* <Box justifySelf={'space-around'} alignSelf={'flex-start'} >
@@ -70,7 +70,7 @@ function GridImagePage({currentUrl,title,type}) {
       </Box>
       <Box sx={{'& > button:hover':{backgroundColor:color.secondary[400]}}}>
           <Button sx={{backgroundColor:color.secondary[500],marginRight:'8px'}} disabled={state.value===1} onClick={()=>{dispatch({type:'DEC'})}}  startIcon={<ChevronLeftRounded/>} variant="contained">Prev</Button>
-          <TextField onChange={(e)=>{setCurrentInput(e.target.value)}} value={currentInput} onKeyDown={(e)=>{e.key==='Enter' && dispatch({type:'ByInput',payload:e.target.value})}} type="text"  style={{backgroundColor:color.secondary[900],padding:'3px',width:'30px',alignContent:'center',borderRadius:'5px'}} variant="standard" InputProps={{ disableUnderline: true }}   sx={{fontSize:'12px'}}/>
+          <TextField onChange={(e)=>{setCurrentInput(e.target.value)}} value={currentInput} onKeyDown={(e)=>{e.key==='Enter' && dispatch({type:'ByInput',payload:e.target.value})}} type="text" variant="standard"  style={{backgroundColor:color.secondary[900],padding:'3px',width:'30px',borderRadius:'5px'}}  InputProps={{ disableUnderline: true }}   sx={{fontSize:'12px'}}/>
           <Button sx={{backgroundColor:color.secondary[500],marginLeft:'8px'}} disabled={state.value===250} onClick={()=>{dispatch({type:'INC'})}} endIcon={<ChevronRightOutlined/>} variant="contained">Next</Button>
       </Box>
     </Box>

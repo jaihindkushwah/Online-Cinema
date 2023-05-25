@@ -3,7 +3,7 @@ import React from 'react'
 import GridImage from '../../components/GridImage'
 
 function MyFavorite() {
-  const data=[];
+  const data=JSON.parse(localStorage.getItem('myFavoriteData'))||[];
   return (
     <Box
       padding={"20px"}
@@ -12,7 +12,7 @@ function MyFavorite() {
       flexDirection={"column"}
       alignItems={"center"}
     >
-      <Typography marginBottom={"20px"} variant="h3">
+      <Typography letterSpacing={'1px'} marginBottom={"20px"} variant="h3">
         My Favourite
       </Typography>
       

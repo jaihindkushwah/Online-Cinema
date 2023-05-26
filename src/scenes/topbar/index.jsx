@@ -16,6 +16,7 @@ function TopBar() {
   // console.log(color);
   const mobile=useMediaQuery('(max-width:420px)');
   const navigate=useNavigate();
+  
 
   const isLogin=useSelector((state)=>state.login);
   
@@ -25,9 +26,9 @@ function TopBar() {
       <Box display={'flex'} justifyContent={'flex-end'} p={'15px'}>
       <Box sx={{display: 'flex',alignItems:'center',justifyContent:'space-around',height:'40px','& > *':{margin:'0px 5px',backgroundColor:color.secondary[900]}}}>
         <Box sx={{ display: 'flex', alignItems: 'center'}} minWidth={mobile?'180px':'280px'}>
-          <IconButton ><SearchIcon/></IconButton>
-          <TextField variant="standard" InputProps={{ disableUnderline: true }}   sx={{flex:'1',fontSize:'12px'}} placeholder='What are you looking for?'/>
-          <IconButton ><KeyboardVoiceOutlinedIcon/></IconButton>
+          <IconButton onClick={()=>{navigate('/search')}}  ><SearchIcon/></IconButton>
+          <TextField  onClick={()=>{navigate('/search')}} variant="standard" InputProps={{ disableUnderline: true }}   sx={{flex:'1',fontSize:'12px'}} placeholder='What are you looking for?'/>
+          <IconButton onClick={()=>{navigate('/search')}}  ><KeyboardVoiceOutlinedIcon/></IconButton>
         </Box>
         <Box>
           <IconButton onClick={()=>{colorMode.toggleColorMode()}}>{theme.palette.mode==='dark'?<DarkModeOutlined/>:<LightModeOutlined/>}</IconButton>

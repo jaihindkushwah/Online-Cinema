@@ -29,4 +29,4 @@ export const seriesUrl=(page)=>(API_BASE+`/trending/tv/week?language=en-US&page=
 
 export const singleDataUrl=(type,id)=>(API_BASE+`/${type}/${id}?language=en-US&api_key=`+TMDB_API_KEY);
 
-
+export const searchDataUrl=(type,name)=>(`https://api.themoviedb.org/3/search/${type}?api_key=${TMDB_API_KEY}&query=${name}`);

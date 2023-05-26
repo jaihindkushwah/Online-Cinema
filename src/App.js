@@ -22,6 +22,7 @@ import FaqPage from "./faq/FaqPage";
 import MovieInfoPage from "./scenes/movies/MovieInfoPage";
 import TvInfoPage from "./scenes/tvshows/TvInfoPage";
 import ResetPasswordPage from "./scenes/resetPassword/resetPassword";
+import SearchPage from "./scenes/search/searchPage";
 
 function App() {
     
@@ -61,7 +62,7 @@ function App() {
                 <Route path="/signup" element={<SignUpPage/>}/>
                 <Route path="/user" element={<HomePage/>}></Route>
                 <Route path="/faq" element={<FaqPage/>}/>
-                
+                <Route path='/search' element={<SearchPage/>} />
                 <Route path="/movie/:id" element={<MovieInfoPage/>} />
                 <Route path="/tv/:id" element={<TvInfoPage/>} />
               </Routes>

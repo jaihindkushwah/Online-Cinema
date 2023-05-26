@@ -8,15 +8,15 @@ import GridImage from '../../components/GridImage';
 function SearchPage() {
   const [searchInput,setSearchInput]=useState('');
   const [selectType,setSelectType]=useState('movie');
-
-  
   const [data,setData]=useState([]);
   useEffect(()=>{
     const url=searchDataUrl(selectType,searchInput);
     fetch(url)
     .then((res)=>res.json())
-    .then((res)=>{setData(res.results)});
-  },[selectType,searchInput])
+    .then((res)=>{
+        setData(res.results)
+    });
+  },[searchInput,selectType])
 
   
   const theme=useTheme();
@@ -24,7 +24,9 @@ function SearchPage() {
   return (
     <Box padding='20px' display={'flex'} justifyContent={'center'} alignItems={'center'} flexDirection={'column'}>
       <Box width={'50%'}>
-      <form sx={{'width':'100%'}} onSubmit={(e)=>{e.preventDefault()}}>
+      <form sx={{'width':'100%'}} onSubmit={
+        (e)=>{e.preventDefault();}
+        }>
         <Box minWidth={'200px'} borderRadius={'5px'} padding='10px' display={'flex'} alignItems={'center'} justifyContent={'center'} sx={{backgroundColor:color.lightblue[500]}}>
                 <TextField
                 required

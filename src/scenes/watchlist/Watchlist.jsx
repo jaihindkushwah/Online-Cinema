@@ -1,9 +1,13 @@
-import { Box, Typography } from "@mui/material";
-import React from "react";
+import { Box, Button, Typography, useTheme } from "@mui/material";
+import React, { useState } from "react";
 import GridImage from "../../components/GridImage";
+import { tokens } from "../../theme";
 
 function Watchlist() {
-  const data = JSON.parse(localStorage.getItem('watchListData'))||[];
+  const [data,setData]=useState(JSON.parse(localStorage.getItem('watchListData'))||[]);
+  const theme=useTheme();
+  const color=tokens(theme.palette.mode);
+  
   return (
     <Box
       padding={"20px"}
@@ -18,7 +22,13 @@ function Watchlist() {
       </Typography>
       
 
-      <Box>
+      <Box width='100%'>
+        <Box width={'100%'} display={'flex'} justifyContent={'flex-end'} >
+          <Box sx={{backgroundColor:color.secondary[500]}}>
+            <Button sx={{fontWeight:'500',color:'white'}} variant='standard' onClick={()=>{localStorage.removeItem("watchListData");setData([])}}>Delete All</Button>
+
+          </Box>
+        </Box>
         <GridImage data={data} />
       </Box>
     </Box>

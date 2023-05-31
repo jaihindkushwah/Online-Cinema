@@ -11,10 +11,9 @@ const useFetchApi=(url)=>{
     },[url])
     return [data];
 }
+export default useFetchApi
 
-export default useFetchApi;
-
-export const useFetchApiForSingleData=(url)=>{
+ export const useFetchApiForSingleData=(url)=>{
     
     const [data,setData]=useState([]);
     useEffect(()=>{
@@ -24,4 +23,7 @@ export const useFetchApiForSingleData=(url)=>{
     },[url])
     return data
 }
+
+// export {useFetchApiForSingleData}
+
 

@@ -4,7 +4,7 @@ import GridImage from "../../components/GridImage";
 import { tokens } from "../../theme";
 
 function Watchlist() {
-  const [data,setData]=useState(JSON.parse(localStorage.getItem('watchListData'))||[]);
+  const [data,setData]=useState(JSON.parse(sessionStorage.getItem('watchListData'))||[]);
   const theme=useTheme();
   const color=tokens(theme.palette.mode);
   
@@ -25,7 +25,7 @@ function Watchlist() {
       <Box width='100%'>
         {data.length!==0 && <Box width={'100%'} display={'flex'} justifyContent={'flex-end'} >
           <Box sx={{backgroundColor:color.secondary[500]}}>
-            <Button sx={{fontWeight:'500',color:'white'}} variant='standard' onClick={()=>{localStorage.removeItem("watchListData");setData([])}}>Delete All</Button>
+            <Button sx={{fontWeight:'500',color:'white'}} variant='standard' onClick={()=>{sessionStorage.removeItem("watchListData");setData([])}}>Delete All</Button>
           </Box>
         </Box>}
         <GridImage data={data} />

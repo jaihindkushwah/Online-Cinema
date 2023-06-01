@@ -19,39 +19,39 @@ function TvInfoPage() {
 
   
   const saveFavoriteData=(image,id)=>{
-    const myFavoriteData=JSON.parse(sessionStorage.getItem('myFavoriteData'))||[];
+    const myFavoriteData=JSON.parse(localStorage.getItem('myFavoriteData'))||[];
     const isPresent=myFavoriteData.some((item)=>item.id===id);
     if(!isPresent){
       const newFabData=[...myFavoriteData,{"id":id,poster_path:image,type:'movie'}]
-      sessionStorage.setItem('myFavoriteData',JSON.stringify(newFabData))
+      localStorage.setItem('myFavoriteData',JSON.stringify(newFabData))
     }else{
       const filterData=myFavoriteData.filter((item)=>item.id!==id);
-      // sessionStorage.setItem('myFavoriteData',JSON.stringify(filterData));
-      sessionStorage.setItem('myFavoriteData',JSON.stringify(filterData))
+      // localStorage.setItem('myFavoriteData',JSON.stringify(filterData));
+      localStorage.setItem('myFavoriteData',JSON.stringify(filterData))
     }
   }
 
   const saveWatchListData=(image,id)=>{
-    const watchListData=JSON.parse(sessionStorage.getItem('watchListData'))||[];
+    const watchListData=JSON.parse(localStorage.getItem('watchListData'))||[];
     const isPresent=watchListData.some((item)=>item.id===id);
     if(!isPresent){
       const newWatchListData=[...watchListData,{"id":id,poster_path:image,type:'movie'}];
-      sessionStorage.setItem('watchListData',JSON.stringify(newWatchListData));
+      localStorage.setItem('watchListData',JSON.stringify(newWatchListData));
     }
     else{
       const filterData=watchListData.filter((item)=>item.id!==id);
-      sessionStorage.setItem('watchListData',JSON.stringify(filterData));
+      localStorage.setItem('watchListData',JSON.stringify(filterData));
     }
     
   }
 
   useEffect(()=>{
-    const myFavoriteData=JSON.parse(sessionStorage.getItem('myFavoriteData'))||[];
+    const myFavoriteData=JSON.parse(localStorage.getItem('myFavoriteData'))||[];
     const isPresentFav=myFavoriteData.some((item)=>item.id===Number(id));
     if(isPresentFav){
       setFav(true);
     }
-    const watchListData=JSON.parse(sessionStorage.getItem('watchListData'))||[];
+    const watchListData=JSON.parse(localStorage.getItem('watchListData'))||[];
     const isPresentWatchList=watchListData.some((item)=>item.id===Number(id));
     if(isPresentWatchList){
       setWatch(true);

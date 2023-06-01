@@ -5,7 +5,7 @@ import { useTheme } from '@mui/material'
 import { tokens } from '../../theme';
 
 function MyFavorite() {
-  const [data,setData]=useState(JSON.parse(sessionStorage.getItem('myFavoriteData'))||[]);
+  const [data,setData]=useState(JSON.parse(localStorage.getItem('myFavoriteData'))||[]);
   const theme=useTheme();
   const color=tokens(theme.palette.mode);
   return (
@@ -23,7 +23,7 @@ function MyFavorite() {
       <Box width='100%'>
         {data.length!==0 && <Box width={'100%'} display={'flex'} justifyContent={'flex-end'} >
           <Box sx={{backgroundColor:color.secondary[500]}}>
-            <Button sx={{fontWeight:'500',color:'white'}} variant='standard' onClick={()=>{sessionStorage.removeItem("myFavoriteData");setData([])}}>Delete All</Button>
+            <Button sx={{fontWeight:'500',color:'white'}} variant='standard' onClick={()=>{localStorage.removeItem("myFavoriteData");setData([])}}>Delete All</Button>
 
           </Box>
         </Box>}

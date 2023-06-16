@@ -10,13 +10,17 @@ function SearchPage() {
   const [selectType,setSelectType]=useState('movie');
   const [data,setData]=useState([]);
   useEffect(()=>{
-    const url=searchDataUrl(selectType,searchInput);
-    fetch(url)
-    .then((res)=>res.json())
-    .then((res)=>{
-        setData(res.results)
-    });
-  },[searchInput,selectType])
+    const timeoutId=setTimeout(()=>{
+      const url=searchDataUrl(selectType,searchInput);
+      fetch(url)
+      .then((res)=>res.json())
+      .then((res)=>{
+          setData(res.results)
+      });
+    },2000);
+    return ()=>clearTimeout(timeoutId);
+  },[searchInput,selectType]);
+  
 
   
   const theme=useTheme();

@@ -1,4 +1,4 @@
-import { Box, IconButton, Typography, useTheme } from '@mui/material'
+import { Box, IconButton, Typography, useMediaQuery, useTheme } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { singleDataUrl } from '../../movieApi/urls';
@@ -59,12 +59,15 @@ function MovieInfoPage() {
 
   },[id]);
 
+
+  const sm=useMediaQuery('(max-width:580px)')
+
   return (
     <Box padding={"40px 20px"}>
       <Box padding={"20px"}>
         <Box
           width={"100%"}
-          height={"65vh"}
+          height={sm?"60vh":'65vh'}
           sx={{
             backgroundImage: `url(${
               imgFullSizeUrl + singleData.backdrop_path
@@ -75,13 +78,13 @@ function MovieInfoPage() {
           <Box
             width={"100%"}
             height='100%'
-            padding={"30px"}
+            padding={sm?"20px":'30px'}
             sx={{
               backgroundImage:
                 "linear-gradient(to right, rgba(31.5, 31.5, 31.5, .9) calc((50vw - 170px) - 340px), rgba(31.5, 31.5, 31.5, 0.60) 50%, rgba(31.5, 31.5, 31.5, 0.60) 100%)",
             }}
           >
-            <Box display={"flex"} >
+            <Box display={"flex"} flexDirection={sm && 'column'} gap={sm && "40px"} >
 
 
               <Box>
@@ -89,7 +92,9 @@ function MovieInfoPage() {
               </Box>
 
 
-              <Box padding={'20px 40px'} display={'flex'} sx={{'& >*':{margin:'10px 0px'}}} justifyContent={'flex-start'} flexDirection={'column'}>
+              <Box padding={'20px 40px'} display={'flex'}
+               sx={{'& >*':{margin:'10px 0px'},backgroundColor:sm && color.secondary[400]}}
+                justifyContent={'flex-start'} flexDirection={'column'} >
                 
                 
                 <Box>

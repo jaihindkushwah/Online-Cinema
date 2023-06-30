@@ -1,4 +1,4 @@
-import { Box,Button,Typography, useTheme } from '@mui/material'
+import { Box,Button,Typography, useMediaQuery, useTheme } from '@mui/material'
 import React, { useEffect, useRef, useState } from 'react'
 import ImageItem from './ImageItem'
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
@@ -11,6 +11,7 @@ import { imageBaseUrl } from '../movieApi/urls';
 
 import { tokens } from '../theme';
 function VerticalImageList( {title,data,type}) {
+    const sm=useMediaQuery('(max-width:600px)');
     const ref=useRef(null);
     const [scrollValue,setScrollValue]=useState(0);
     const [maxScrollWidth,setMaxScrollWidth]=useState(0);
@@ -49,8 +50,8 @@ function VerticalImageList( {title,data,type}) {
   return (  
         <Box>
             <Box display={'flex'} justifyContent={'space-between'} margin={'10px 0px'} >
-                <Typography padding={'0px 5px'} variant='h3' letterSpacing={'1px'}> {title} </Typography> 
-                <Box sx={{'& > Button:hover':{backgroundColor:color.secondary[500]},'& > Button':{color:'white'}}}>
+                <Typography padding={'0px 5px'} fontSize={sm && '19px'} variant='h3' flex={1} letterSpacing={'1px'}> {title} </Typography> 
+                <Box sx={{'& > Button:hover':{backgroundColor:color.secondary[500]},display:'inline-block','& > Button':{color:'white'}}}>
                     <Button onClick={PrevScroll} variant='standard' disabled={scrollValue===0 ? true:false} sx={{backgroundColor:color.secondary[500],marginRight:'5px'}} startIcon={<ChevronLeftIcon/>}/>
                     <Button onClick={NextScroll} variant='standard' disabled={scrollValue===maxScrollWidth ? true:false} sx={{backgroundColor:color.secondary[500]}} endIcon={<ChevronRightIcon/>}/>
                 </Box>

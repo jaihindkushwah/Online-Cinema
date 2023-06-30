@@ -1,4 +1,4 @@
-import { Box, Button, TextField, Typography, useTheme } from "@mui/material";
+import { Box, Button, TextField, Typography, useMediaQuery, useTheme } from "@mui/material";
 import React, { useReducer, useState } from "react";
 import GridImage from "./GridImage";
 import getData from "../movieApi/getListOfData";
@@ -50,6 +50,7 @@ function GridImagePage({currentUrl,title,type}) {
 
     const [state,dispatch]=useReducer(reducer,{value:1});
     const data = getData(currentUrl,state.value);
+    const sm=useMediaQuery('(max-width:480px)');
    
   return (
     <Box
@@ -59,7 +60,7 @@ function GridImagePage({currentUrl,title,type}) {
       flexDirection={"column"}
       alignItems={"center"}
     >
-      <Typography letterSpacing={'1px'} marginBottom={"20px"} variant="h3">
+      <Typography letterSpacing={'1px'} marginBottom={"20px"} fontSize={sm && '19px'} variant="h3">
         {title}
       </Typography>
       {/* <Box justifySelf={'space-around'} alignSelf={'flex-start'} >

@@ -4,7 +4,7 @@ import { Box, Button, ButtonBase, Typography, useMediaQuery, useTheme } from '@m
 import PlayCircleFilledWhiteOutlinedIcon from '@mui/icons-material/PlayCircleFilledWhiteOutlined';
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 function Poster() {
-  const mobile=useMediaQuery('(max-width:480px)');
+  const mobile=useMediaQuery('(max-width:640px)');
   const theme=useTheme();
   const color=tokens(theme.palette.mode);
   return (

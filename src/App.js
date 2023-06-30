@@ -1,4 +1,4 @@
-import { Box, CssBaseline, ThemeProvider } from "@mui/material";
+import { Box, CssBaseline, ThemeProvider} from "@mui/material";
 import "./App.css";
 import SideBar from "./scenes/sidebar";
 import TopBar from "./scenes/topbar";
@@ -24,8 +24,10 @@ import TvInfoPage from "./scenes/tvshows/TvInfoPage";
 import ResetPasswordPage from "./scenes/resetPassword/resetPassword";
 import SearchPage from "./scenes/search/searchPage";
 
+
 function App() {
-    
+
+  // const sm=useMediaQuery('(max-width:480px)');
   const [theme,colorMode]=useColorMode();
   return (<Provider store={store}>
     
@@ -33,6 +35,9 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <BrowserRouter>
+
+
+        <ProSidebarProvider >
         <Box
           display={"flex"}
           flexDirection={"row"}
@@ -40,9 +45,9 @@ function App() {
           max-width={'100vw'}
         >
           <Box>
-            <ProSidebarProvider>
-              <SideBar />
-            </ProSidebarProvider>
+            
+              <SideBar breakpoint={'sm'} />
+            
           </Box>
           <Box flex={1} sx={{overflowX:'hidden'}}>
             <TopBar />
@@ -70,6 +75,9 @@ function App() {
           </Box>
           
         </Box>
+
+        </ProSidebarProvider>
+
         <Footer/>
         </BrowserRouter>
       </ThemeProvider>

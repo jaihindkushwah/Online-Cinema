@@ -80,7 +80,7 @@ function LoginPage() {
     <Box padding={"20px"} sx={flexStyle}>
       <Box
         height={"500px"}
-        width="360px"
+        width="340px"
         sx={{ backgroundColor: color.lightblue[700] }}
       >
         

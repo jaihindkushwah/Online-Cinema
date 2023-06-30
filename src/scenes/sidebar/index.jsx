@@ -49,13 +49,19 @@ const Item = ({ title, to, active, setActive, icon }) => {
 
 function SideBars() {
   const [active,setActive]=useState("Home");
-  const { collapseSidebar, collapsed } = useProSidebar();
+  const { collapseSidebar, collapsed,broken,toggleSidebar } = useProSidebar();
   const theme=useTheme();
   const color=tokens(theme.palette.mode);
   const isLogin=useSelector((state)=>state.login);
+
+  // const sm=useMediaQuery('(480px)');
+
   return (
     <Box sx={{backgroundColor:color.secondary[900]}} minHeight={'100%'}>
-      <Sidebar style={{borderRightWidth:0,backgroundColor:color.secondary[900]}} 
+      <Sidebar
+        breakPoint="sm"
+        transitionDuration={400}
+       style={{borderRightWidth:0,backgroundColor:color.secondary[900]}} 
       rootStyles={{
         '.ps-sidebar-container':{
             backgroundColor:color.secondary[900],
@@ -68,15 +74,14 @@ function SideBars() {
         <Menu >
          <MenuItem>
          <IconButton
-            onClick={() => {
-              collapseSidebar();
-            }}
+            onClick={broken ? () => toggleSidebar() : () => collapseSidebar()}
             
           >
            {!collapsed?<CloseIcon/>:<MenuIcon/>}
           </IconButton>
           </MenuItem>
         </Menu>
+
         <Menu style={{paddingTop:'100px'}} rootStyles={{'.ps-menu-button:hover':{backgroundColor:'inherit',}}} menuItemStyles={{button:({active})=>({borderLeft: active &&'6px solid #f54707'})}}>
           <Item to={''} title={'Home'} active={active} setActive={setActive} icon={<HouseOutlinedIcon />}/>
           <Item to={'movies'} title={'Movies'} active={active} setActive={setActive} icon={<MovieOutlinedIcon />}/>

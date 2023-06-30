@@ -1,5 +1,5 @@
 
-import { Box, Button,  InputAdornment, MenuItem, Select, TextField, useTheme } from '@mui/material'
+import { Box, Button,  InputAdornment, MenuItem, Select, TextField, useMediaQuery, useTheme } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { tokens } from '../../theme';
 import { searchDataUrl } from '../../movieApi/urls'
@@ -22,16 +22,17 @@ function SearchPage() {
   },[searchInput,selectType]);
   
 
-  
+  const mid=useMediaQuery('(max-width:720px)');
+  const sm=useMediaQuery('(max-width:480px)');
   const theme=useTheme();
   const color=tokens(theme.palette.mode);
   return (
-    <Box padding='20px' display={'flex'} justifyContent={'center'} alignItems={'center'} flexDirection={'column'}>
-      <Box width={'50%'}>
+    <Box padding={sm?'5px':'20px'} display={'flex'} justifyContent={'center'} alignItems={'center'} flexDirection={'column'}>
+      <Box width={sm?'90%':mid?'80%':'50%'}>
       <form sx={{'width':'100%'}} onSubmit={
         (e)=>{e.preventDefault();}
         }>
-        <Box minWidth={'200px'} borderRadius={'5px'} padding='10px' display={'flex'} alignItems={'center'} justifyContent={'center'} sx={{backgroundColor:color.lightblue[500]}}>
+        <Box minWidth={'200px'} borderRadius={'5px'} padding={'10px'} display={'flex'} alignItems={'center'} justifyContent={'center'} sx={{backgroundColor:color.lightblue[500]}}>
                 <TextField
                 required
                 sx={{'& div:hover':{border:'none'},display:'flex',justifyContent:'space-between',backgroundColor:'#ccc','&  input':{textAlign:'center',color:'black',height:'10px',fontSize:'15px',fontWeight:'500'}}}

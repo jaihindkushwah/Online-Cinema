@@ -11,12 +11,12 @@ import {getStorage} from 'firebase/storage'
 // https://firebase.google.com/docs/web/setup#available-libraries
 // console.log(process.env.REACT_APP_FIREBASE_API_KEY,process.env.REACT_APP_AUTH_DOMAIN);
 
-// const FIREBASE_API_KEY=process.env.REACT_APP_FIREBASE_API_KEY;
-// const AUTH_DOMAIN=process.env.REACT_APP_AUTH_DOMAIN;
+const FIREBASE_API_KEY=process.env.REACT_APP_FIREBASE_API_KEY;
+const AUTH_DOMAIN=process.env.REACT_APP_AUTH_DOMAIN;
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey:'AIzaSyA15Q5rPIMc-OClYQcknMf5UOZXPsu7JkE',
-  authDomain:'online-tv-fdb4e.firebaseapp.com',
+  apiKey:FIREBASE_API_KEY,
+  authDomain:AUTH_DOMAIN,
   projectId: "online-tv-fdb4e",
   storageBucket: "online-tv-fdb4e.appspot.com",
   messagingSenderId: "65351651080",

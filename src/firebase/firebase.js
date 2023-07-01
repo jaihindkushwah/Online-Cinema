@@ -17,10 +17,10 @@ const AUTH_DOMAIN=process.env.REACT_APP_AUTH_DOMAIN;
 const firebaseConfig = {
   apiKey:FIREBASE_API_KEY,
   authDomain:AUTH_DOMAIN,
-  projectId: "ottapp-55a40",
-  storageBucket: "ottapp-55a40.appspot.com",
-  messagingSenderId: "906997441620",
-  appId: "1:906997441620:web:de3104db26a083110d79c1"
+  projectId: "online-tv-fdb4e",
+  storageBucket: "online-tv-fdb4e.appspot.com",
+  messagingSenderId: "65351651080",
+  appId: "1:65351651080:web:fccf5cec2027498e6426bd"
 };
 
 // Initialize Firebase

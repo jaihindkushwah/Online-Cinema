@@ -67,30 +67,6 @@ function VerticalImageList( {title,data,type}) {
                         )
                     })
                 }
-                
-{/* 
-
-                    <ImageItem src={logo} />
-                    <ImageItem src={logo1} />
-                    <ImageItem src={logo1} />
-                    <ImageItem src={logo} />
-                    <ImageItem src={logo} />
-                    <ImageItem src={logo1} />
-                    <ImageItem src={logo} />
-                    <ImageItem src={logo1} />
-                    <ImageItem src={logo1} />
-                    <ImageItem src={logo} />
-                    <ImageItem src={logo1} />
-                    <ImageItem src={logo} />
-                    <ImageItem src={logo} />
-                    <ImageItem src={logo1} />
-                    <ImageItem src={logo} />
-                    <ImageItem src={logo} />
-                    <ImageItem src={logo1} />
-                    <ImageItem src={logo} />
-                    <ImageItem src={logo1} />
-                    <ImageItem src={logo} />
-                    <ImageItem src={logo1} /> */}
 
                 
                 

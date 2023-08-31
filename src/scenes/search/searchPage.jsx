@@ -17,7 +17,7 @@ function SearchPage() {
       .then((res)=>{
           setData(res.results)
       });
-    },2000);
+    },1000);
     return ()=>clearTimeout(timeoutId);
   },[searchInput,selectType]);
   

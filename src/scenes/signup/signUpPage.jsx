@@ -189,7 +189,8 @@ import userRegistrations from "../../firebase/createUserRegistration";
                     width={40}
                     style={{ borderRadius: "52%", backgroundColor: "inherit" }}
                     src={facebookLogo}
-                    alt=""
+                    alt="facebookLogo"
+                    loading="lazy"
                   />
                 </IconButton>
                 <IconButton onClick={()=>{
@@ -198,6 +199,7 @@ import userRegistrations from "../../firebase/createUserRegistration";
                   <img
                     width={40}
                     style={{ borderRadius: "52%" }}
+                    loading="lazy"
                     alt="googleLogo"
                     src="https://cdn-icons-png.flaticon.com/512/7199/7199629.png"
                   />
@@ -208,7 +210,8 @@ import userRegistrations from "../../firebase/createUserRegistration";
                     width={40}
                     style={{ borderRadius: "52%" }}
                     src={twitterIcon}
-                    alt=""
+                    alt="twitterLogo"
+                    loading="lazy"
                   />
                 </IconButton>
               </Box>

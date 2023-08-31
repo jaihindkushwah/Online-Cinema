@@ -73,7 +73,7 @@ function SideBars() {
         }}>
         <Menu >
          <MenuItem>
-         <IconButton
+         <IconButton 
             onClick={broken ? () => toggleSidebar() : () => collapseSidebar()}
             
           >

@@ -196,7 +196,8 @@ function LoginPage() {
                   width={40}
                   style={{ borderRadius: "52%", backgroundColor: "inherit" }}
                   src={facebookLogo}
-                  alt=""
+                  alt="facebookLogo"
+                  loading="lazy"
                 />
               </IconButton>
               <IconButton onClick={()=>{signUpWithGoogle(dispatch,login,navigate)}}>
@@ -204,6 +205,7 @@ function LoginPage() {
                   width={40}
                   style={{ borderRadius: "52%" }}
                   alt="googleLogo"
+                  loading="lazy"
                   src="https://cdn-icons-png.flaticon.com/512/7199/7199629.png"
                 />
               </IconButton>
@@ -213,7 +215,8 @@ function LoginPage() {
                   width={40}
                   style={{ borderRadius: "52%" }}
                   src={twitterIcon}
-                  alt=""
+                  alt="twitterLogo"
+                  loading="lazy"
                 />
               </IconButton>
             </Box>

@@ -10,6 +10,7 @@ import { DarkModeOutlined, LightModeOutlined } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useProSidebar } from 'react-pro-sidebar';
+import { useSearchState } from '../../context/SearchContext';
 
 function TopBar() {
   const colorMode=useContext(colorModeContext);
@@ -18,12 +19,29 @@ function TopBar() {
   // console.log(color);
   const mobile=useMediaQuery('(max-width:590px)');
   const navigate=useNavigate();
+  const[ value, setValue ]=React.useState('');
   
 
   const isLogin=useSelector((state)=>state.login);
 
   const {collapseSidebar,broken,toggleSidebar}=useProSidebar();
-  
+
+  const {searchInput,setSearchInput}=useSearchState();
+  // console.log(useSearchState());
+
+  const searchHandler=()=>{
+      if(!value){
+        return alert('Please Enter a Value');
+      }
+      setSearchInput({...searchInput,searchValue:value});
+      setValue('');
+      navigate(`/search`);
+  }
+  const searchHandlerOnKey=(e)=>{
+    if(e.key==='Enter'){
+      searchHandler();
+    }
+  }
 
   return (
     // <Box sx={{position:'sticky',top:"0px",backdropFilter:'blur(8px)',zIndex:'1000'}}>
@@ -40,9 +58,9 @@ function TopBar() {
       <Box sx={{display: 'flex',alignItems:'center',justifyContent:'space-around',height:'40px','& > *':{margin:'0px 2px',backgroundColor:color.secondary[900]}}}>
       
         <Box sx={{ display: 'flex', alignItems: 'center'}} minWidth={mobile?'160px':'280px'}>
-          <IconButton onClick={()=>{navigate('/search')}}  ><SearchIcon/></IconButton>
-          <TextField  onClick={()=>{navigate('/search')}} variant="standard" InputProps={{ disableUnderline: true }}   sx={{flex:'1',fontSize:'12px'}} placeholder='What are you looking for?'/>
-          <IconButton onClick={()=>{navigate('/search')}}  ><KeyboardVoiceOutlinedIcon/></IconButton>
+          <IconButton onClick={searchHandler}  ><SearchIcon/></IconButton>
+          <TextField onKeyDown={searchHandlerOnKey}  onChange={(e)=>{setValue(e.target.value)}} value={value} variant="standard" InputProps={{ disableUnderline: true }}   sx={{flex:'1',fontSize:'12px'}} placeholder='What are you looking for?'/>
+          <IconButton  ><KeyboardVoiceOutlinedIcon/></IconButton>
         </Box>
           <Box>
             <IconButton onClick={()=>{colorMode.toggleColorMode()}}>{theme.palette.mode==='dark'?<DarkModeOutlined/>:<LightModeOutlined/>}</IconButton>

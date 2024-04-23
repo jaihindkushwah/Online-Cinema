@@ -1,4 +1,4 @@
-import { Box, CssBaseline, ThemeProvider} from "@mui/material";
+import { Box, CssBaseline, ThemeProvider } from "@mui/material";
 import "./App.css";
 import SideBar from "./scenes/sidebar";
 import TopBar from "./scenes/topbar";
@@ -23,66 +23,63 @@ import MovieInfoPage from "./scenes/movies/MovieInfoPage";
 import TvInfoPage from "./scenes/tvshows/TvInfoPage";
 import ResetPasswordPage from "./scenes/resetPassword/resetPassword";
 import SearchPage from "./scenes/search/searchPage";
-
+import SearchContext from "./context/SearchContext";
 
 function App() {
-
   // const sm=useMediaQuery('(max-width:480px)');
-  const [theme,colorMode]=useColorMode();
-  return (<Provider store={store}>
-    
-    <colorModeContext.Provider value={colorMode} >
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <BrowserRouter>
+  const [theme, colorMode] = useColorMode();
+  return (
+    <Provider store={store}>
+      <colorModeContext.Provider value={colorMode}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <BrowserRouter>
+            <ProSidebarProvider>
+              <Box
+                display={"flex"}
+                flexDirection={"row"}
+                minHeight={"100vh"}
+                max-width={"100vw"}
+              >
+                <Box>
+                  <SideBar breakpoint={"sm"} />
+                </Box>
+                <SearchContext>
+                  <Box flex={1} sx={{ overflowX: "hidden" }}>
+                    <TopBar />
+                    <Box>
+                      <Routes>
+                        <Route path="/" element={<HomePage />} />
+                        <Route path="/movies" element={<MoviesPage />}></Route>
+                        <Route path="/tvshows" element={<TvShows />} />
+                        <Route path="/series" element={<Series />} />
+                        <Route path="/favorite" element={<MyFavourite />} />
+                        <Route path="/watchlist" element={<Watchlist />} />
+                        <Route path="/settings" element={<Settings />} />
+                        <Route path="/login" element={<LoginPage />} />
+                        <Route path="/logout" element={<LogoutPage />} />
+                        <Route
+                          path="/resetpassword"
+                          element={<ResetPasswordPage />}
+                        />
+                        <Route path="/signup" element={<SignUpPage />} />
+                        <Route path="/user" element={<HomePage />}></Route>
+                        <Route path="/faq" element={<FaqPage />} />
+                        <Route path="/search" element={<SearchPage />} />
+                        <Route path="/movie/:id" element={<MovieInfoPage />} />
+                        <Route path="/tv/:id" element={<TvInfoPage />} />
+                      </Routes>
+                    </Box>
+                  </Box>
+                </SearchContext>
+              </Box>
+            </ProSidebarProvider>
 
-
-        <ProSidebarProvider >
-        <Box
-          display={"flex"}
-          flexDirection={"row"}
-          minHeight={"100vh"}
-          max-width={'100vw'}
-        >
-          <Box>
-            
-              <SideBar breakpoint={'sm'} />
-            
-          </Box>
-          <Box flex={1} sx={{overflowX:'hidden'}}>
-            <TopBar />
-            <Box>
-              <Routes>
-                <Route path="/" element={<HomePage/>}/>
-                <Route path="/movies" element={<MoviesPage/>}>
-                </Route>
-                <Route path="/tvshows" element={<TvShows/>}/>
-                <Route path="/series" element={<Series/>}/>
-                <Route path="/favorite" element={<MyFavourite/>}/>
-                <Route path="/watchlist" element={<Watchlist/>}/>
-                <Route path="/settings" element={<Settings/>}/>
-                <Route path="/login" element={<LoginPage/>}/>
-                <Route path="/logout" element={<LogoutPage/>}/>
-                <Route path="/resetpassword" element={<ResetPasswordPage/>}/>
-                <Route path="/signup" element={<SignUpPage/>}/>
-                <Route path="/user" element={<HomePage/>}></Route>
-                <Route path="/faq" element={<FaqPage/>}/>
-                <Route path='/search' element={<SearchPage/>} />
-                <Route path="/movie/:id" element={<MovieInfoPage/>} />
-                <Route path="/tv/:id" element={<TvInfoPage/>} />
-              </Routes>
-            </Box>
-          </Box>
-          
-        </Box>
-
-        </ProSidebarProvider>
-
-        <Footer/>
-        </BrowserRouter>
-      </ThemeProvider>
-    </colorModeContext.Provider>
-  </Provider>
+            <Footer />
+          </BrowserRouter>
+        </ThemeProvider>
+      </colorModeContext.Provider>
+    </Provider>
   );
 }
 

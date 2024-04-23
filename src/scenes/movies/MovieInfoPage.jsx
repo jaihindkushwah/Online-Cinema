@@ -9,7 +9,8 @@ import {tokens} from '../../theme'
 
 function MovieInfoPage() {
   const {id}=useParams();
-  const singleData=useFetchApiForSingleData(singleDataUrl('movie',id));
+  const {data:singleData}=useFetchApiForSingleData(singleDataUrl('movie',id));
+  
   const imgFullSizeUrl='https://image.tmdb.org/t/p/w1920_and_h800_multi_faces';
   const theme=useTheme();
   const color=tokens(theme.palette.mode);
@@ -52,7 +53,9 @@ function MovieInfoPage() {
       setFav(true);
     }
     const watchListData=JSON.parse(localStorage.getItem('watchListData'))||[];
+
     const isPresentWatchList=watchListData.some((item)=>item.id===Number(id));
+
     if(isPresentWatchList){
       setWatch(true);
     }

@@ -1,4 +1,4 @@
-import { Box } from '@mui/material'
+import { Box, CircularProgress } from '@mui/material'
 import React from 'react'
 import Poster from './Poster'
 import useFetchApi from '../../customHooks/fetchApi'
@@ -17,30 +17,31 @@ function HomePage() {
     const ActionAdventureSifi=useFetchApi(actionAdventureUrl);
     const TvOriginal=useFetchApi(originalUrl);
 
+    
   return (
     <Box padding={'20px'} sx={{'&>*':{marginBottom:'20px'}}} >
       <Poster/>
       <Box>
-        <Suspense fallback={<div>Loading...........</div>}>
-          <VerticalImageList type={'tv'} data={TvOriginal[0]} title={'Tv Originals'}/>
+        <Suspense fallback={<CircularProgress color="secondary" size={"50px"} />}>
+          <VerticalImageList type={'tv'} data={TvOriginal.data} title={'Tv Originals'}/>
         </Suspense>
-        <Suspense fallback={<div>Loading...........</div>}>
-          <VerticalImageList type={'movie'} data={Recomended[0]} title={'Recommended for you'}/>
+        <Suspense fallback={<CircularProgress color="secondary" size={"50px"} />}>
+          <VerticalImageList type={'movie'} data={Recomended.data} title={'Recommended for you'}/>
         </Suspense>
-        <Suspense fallback={<div>Loading...........</div>}>
-          <VerticalImageList type={'trending'} data={trending[0]} title={'Trending'}/>
+        <Suspense fallback={<CircularProgress color="secondary" size={"50px"} />}>
+          <VerticalImageList type={'trending'} data={trending.data} title={'Trending'}/>
         </Suspense>
-        <Suspense fallback={<div>Loading...........</div>}>
-          <VerticalImageList type={'movie'} data={ActionAdventureSifi[0]} title={'Action, Adventure And Sci-Fi'}/>
+        <Suspense fallback={<CircularProgress color="secondary" size={"50px"} />}>
+          <VerticalImageList type={'movie'} data={ActionAdventureSifi.data} title={'Action, Adventure And Sci-Fi'}/>
         </Suspense>
-        <Suspense fallback={<div>Loading...........</div>}>
-          <VerticalImageList type={'movie'} data={Comedy[0]} title={'Comedy'}/>
+        <Suspense fallback={<CircularProgress color="secondary" size={"50px"} />}>
+          <VerticalImageList type={'movie'} data={Comedy.data} title={'Comedy'}/>
         </Suspense>
-        <Suspense fallback={<div>Loading...........</div>}>
-          <VerticalImageList type={'movie'} data={Romance[0]} title={'Romance'}/>
+        <Suspense fallback={<CircularProgress color="secondary" size={"50px"} />}>
+          <VerticalImageList type={'movie'} data={Romance.data} title={'Romance'}/>
         </Suspense>
-        <Suspense fallback={<div>Loading...........</div>}>
-          <VerticalImageList type={'movie'} data={documentry[0]} title={'Documentary'}/>
+        <Suspense fallback={<CircularProgress color="secondary" size={"50px"} />}>
+          <VerticalImageList type={'movie'} data={documentry.data} title={'Documentary'}/>
         </Suspense>
         
           

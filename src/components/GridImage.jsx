@@ -13,6 +13,7 @@ function GridImage({data,type}) {
   return (
     <Box padding={'0px'} display={'flex'} flexWrap={'wrap'} justifyContent={'center'} alignItems={'center'}>
           { data.map((item)=>{
+                if(item.poster_path==null){return null}
                 return(
                     <ImageItem type={type || item.type} width={sm?"150px":'180px'} height='220px' key={item.id}  id={item.id} src={imageBaseUrl+item.poster_path} />
                 )
